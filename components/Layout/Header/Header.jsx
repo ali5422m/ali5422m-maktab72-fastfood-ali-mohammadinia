@@ -12,7 +12,7 @@ function Header() {
             <nav className="navbar navbar-expand-lg custom_nav-container">
               <Link href="/">
                 <a className="navbar-brand">
-                  <span>logo.io</span>
+                  <span>Foody</span>
                 </a>
               </Link>
 

@@ -21,6 +21,10 @@ body {
   vertical-align: -0.3em !important;
 }
 
+.layout_padding {
+  padding: 90px 0;
+}
+
 h1,
 h2 {
   font-family: "IRANSansDN", cursive;
@@ -329,6 +333,27 @@ a:focus {
 
 .footer_section .footer-info p a {
   color: inherit;
+}
+
+
+
+/* more details or features */
+
+.card-area .card-icon-wrapper {
+  display: block;
+  margin: 0 auto;
+  width: 3.75rem;
+  height: 3.75rem;
+  background: #222831;
+  transition: all ease-in-out 0.5s;
+  border-radius: 3.125rem;
+}
+
+.card-area .card-icon-wrapper .card-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
 }
 
 

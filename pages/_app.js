@@ -9,8 +9,14 @@ import { ToastContainer } from "react-toastify";
 import axios from "axios";
 import Header from "@/components/Layout/Header/Header";
 import Footer from "@/components/Layout/Footer/Footer";
+import Router from "next/router";
+import NProgress from "nprogress";
 
 axios.defaults.baseURL = process.env.NEXT_PUBLIC_BACKEND_API_URL;
+
+Router.events.on("routeChangeStart", () => NProgress.start());
+Router.events.on("routeChangeComplete", () => NProgress.done());
+Router.events.on("routeChangeError", () => NProgress.done());
 
 function MyApp({ Component, pageProps }) {
   useEffect(() => {

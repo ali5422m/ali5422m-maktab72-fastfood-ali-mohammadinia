@@ -1,12 +1,14 @@
 import About from "@/components/About/About";
 import Features from "@/components/Features/Features";
 import ContactUs from "@/components/Contact/ContactUs/ContactUs";
+import ProductsTab from "@/components/Products/ProductsTab/ProductsTab";
 
 import axios from "axios";
 import { handleError } from "lib/helper";
 import { useEffect } from "react";
 import { toast } from "react-toastify";
-import ProductsTab from "@/components/Products/ProductsTab/ProductsTab";
+
+
 
 
 export default function Home({ productsTab, error }) {

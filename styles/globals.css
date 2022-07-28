@@ -25,6 +25,10 @@ body {
   padding: 90px 0;
 }
 
+.layout_padding-bottom {
+  padding-bottom: 90px;
+}
+
 h1,
 h2 {
   font-family: "IRANSansDN", cursive;
@@ -447,14 +451,6 @@ a:focus {
 }
 
 
-/* Client section  */
-
-.client_section .heading_container {
-  margin-bottom: 30px;
-}
-
-
-
 
 /* Contact Us */
 
@@ -562,6 +558,121 @@ a:focus {
 
 
 
+/* Products */
+
+.food_section .filters_menu {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  list-style-type: none;
+  padding: 0;
+  margin: 45px 0 20px 0;
+}
+
+.food_section .filters_menu li {
+  padding: 7px 25px;
+  cursor: pointer;
+  border-radius: 25px;
+  outline:none;
+  border:none;
+}
+
+.food_section .filters_menu li.active {
+  background-color: #222831;
+  color: #ffffff;
+}
+
+.food_section .box {
+  position: relative;
+  margin-top: 25px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  color: #ffffff;
+  border-radius: 15px;
+  overflow: hidden;
+  background: linear-gradient(to bottom, #f1f2f3 25px, #222831 25px);
+}
+
+.food_section .box .img-box {
+  background-color: #222831;
+}
+
+.food_section .box .img-box Image {
+  border-radius: 0 0 0 45px;
+  transition: all 0.2s;
+}
+
+.food_section .box .detail-box {
+  padding: 25px;
+  background-color: #222831;
+}
+
+.food_section .box .detail-box h5 {
+  font-weight: 600;
+}
+
+.food_section .box .detail-box p {
+  font-size: 15px;
+}
+
+.food_section .box .detail-box h6 {
+  margin-top: 10px;
+}
+
+.food_section .box .options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.food_section .box .options a,
+.food_section .box .options button {
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  background: #ffbe33;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.food_section .box .options a svg {
+  width: 18px;
+  height: auto;
+  fill: #ffffff;
+}
+
+.food_section .box:hover .img-box Image {
+  transform: scale(1.1);
+}
+
+.food_section .btn-box {
+  display: flex;
+  justify-content: center;
+  margin-top: 45px;
+}
+
+.food_section .btn-box a {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #ffbe33;
+  color: #ffffff;
+  border-radius: 45px;
+  transition: all 0.3s;
+  border: none;
+}
+
+.food_section .btn-box a:hover {
+  background-color: #e69c00;
+}
+
+.food_section .filter-list .filter-list-active {
+  color: #ffbe33;
+}
+
+.client_section .heading_container {
+  margin-bottom: 30px;
+}
 
 
 

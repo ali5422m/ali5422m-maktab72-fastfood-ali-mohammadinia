@@ -1,5 +1,7 @@
 import About from "@/components/About/About";
 import Features from "@/components/Features/Features";
+import ContactUs from "@/components/Contact/ContactUs/ContactUs";
+
 
 
 export default function Home() {
@@ -7,6 +9,7 @@ export default function Home() {
     <>
       <Features />
       <About />
+      <ContactUs />
    </>
   )
 }

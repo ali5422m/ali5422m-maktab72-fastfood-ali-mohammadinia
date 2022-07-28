@@ -48,10 +48,43 @@ a:focus {
 .btn,
 .btn:focus {
   outline: none !important;
-  -webkit-box-shadow: none;
   box-shadow: none;
 }
 
+.heading_container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.heading_container h2 {
+  position: relative;
+  margin-bottom: 0;
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.heading_container h2 span {
+  color: #ffbe33;
+}
+
+.heading_container p {
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+
+.heading_container.heading_center {
+  align-items: center;
+  text-align: center;
+}
+
+.text-yellow{
+  color:#ffbe33;
+}
+
+.fs-14px{
+  font-size:14px;
+}
 
 /* header section */
 
@@ -81,15 +114,15 @@ a:focus {
 .custom_nav-container .navbar-nav .nav-item:hover .nav-link,
 .custom_nav-container .navbar-nav .nav-item.active .nav-link {
   color: #ffbe33;
- 
 }
 
-.nav-item {
-  line-height: 20px;
+
+.navbar-nav{
+  line-height: 25px !important;
 }
 
 .nav-item:hover {
-  border-bottom: 2px solid #ffbe33 ;
+  border-bottom: 2px solid #ffbe33 ;  
 }
 
 .custom_nav-container .nav_search-btn {
@@ -358,6 +391,64 @@ a:focus {
 
 
 
+/* About Section */
+
+.about_section {
+  background: #222831;
+  color: #ffffff;
+}
+
+.about_section .row {
+  display: flex;
+  align-items: center;
+}
+
+.about_section .img-box {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.about_section .img-box Image {
+  width: 100%;
+  max-width: 445px;
+  position: relative;
+  z-index: 2;
+}
+
+.about_section .detail-box p {
+  margin-top: 15px;
+  animation: my_animation .3s ease-in;
+}
+
+@keyframes my_animation {
+	0% { top: -10px ; opacity:0 }
+	100% {top: 0 ; opacity:1 }
+}
+
+.about_section .detail-box a {
+  display: inline-block;
+  padding: 10px 45px;
+  background-color: #ffbe33;
+  color: #ffffff;
+  border-radius: 45px;
+  transition: all 0.3s;
+  border: none;
+  margin-top: 15px;
+  cursor: pointer;
+}
+
+.about_section .detail-box a:hover {
+  background-color: #e69c00;
+}
+
+
+
+
+
+
+
+
 
 
 
@@ -401,5 +492,17 @@ a:focus {
   .rent_solution_container .col-md-4.col-sm-6 {
     float: left;
     width: 50%;
+  }
+}
+
+
+@media (max-width: 767px) {
+  .about_section .detail-box,
+  .book_section .form_container {
+    margin-bottom: 45px;
+  }
+
+  .about_section .row {
+    flex-direction: column-reverse;
   }
 }

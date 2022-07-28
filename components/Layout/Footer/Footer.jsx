@@ -65,7 +65,9 @@ function Footer() {
           </div>
         </div>
         <div className="footer-info">
-          <p>لورم ایپسوم متن ساختگی با تولید سادگی</p>
+          <p className="fs-14px">
+                  کلیه حقوق مادی و معنوی سایت محفوظ و متعلق به سایت فودی می باشد.
+          </p>
         </div>
       </div>
     </footer>

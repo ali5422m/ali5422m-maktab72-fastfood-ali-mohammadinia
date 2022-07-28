@@ -1,22 +1,22 @@
-import { handleError } from "lib/helper";
 import { useState } from "react";
-import { toast } from "react-toastify";
 import axios from "axios";
+import { toast } from "react-toastify";
+import { handleError } from "lib/helper";
 
-const ContactForm = () => {
+const Contact = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [subject, setSubject] = useState("");
   const [text, setText] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const handleSubmit = async (e) => {
+  async function handleSubmit(e) {
     e.preventDefault();
-    if ((name === "", email === "", subject === "", text === "")) {
+
+    if (name === "" && email === "" && subject === "" && text === "") {
       toast.error("تمام موارد فرم تماس با ما الزامی است.");
       return;
     }
-
     try {
       setLoading(true);
       const res = await axios.post("/contact-us", {
@@ -25,20 +25,20 @@ const ContactForm = () => {
         subject,
         text,
       });
-      toast.success("پیام شما ثبت شد");
+      // console.log(res)
+      toast.success("پیام شما ثبت شد.");
     } catch (err) {
       toast.error(handleError(err));
     } finally {
       setLoading(false);
     }
-  };
-
+  }
   return (
     <form onSubmit={handleSubmit}>
       <div>
         <input
-          onChange={(e) => setName(e.target.value)}
           value={name}
+          onChange={(e) => setName(e.target.value)}
           type="text"
           className="form-control"
           placeholder="نام و نام خانوادگی"
@@ -46,8 +46,8 @@ const ContactForm = () => {
       </div>
       <div>
         <input
-          onChange={(e) => setEmail(e.target.value)}
           value={email}
+          onChange={(e) => setEmail(e.target.value)}
           type="email"
           className="form-control"
           placeholder="ایمیل"
@@ -55,8 +55,8 @@ const ContactForm = () => {
       </div>
       <div>
         <input
-          onChange={(e) => setSubject(e.target.value)}
           value={subject}
+          onChange={(e) => setSubject(e.target.value)}
           type="text"
           className="form-control"
           placeholder="موضوع پیام"
@@ -64,8 +64,8 @@ const ContactForm = () => {
       </div>
       <div>
         <textarea
-          onChange={(e) => setText(e.target.value)}
           value={text}
+          onChange={(e) => setText(e.target.value)}
           rows="10"
           style={{ height: "100px" }}
           className="form-control"
@@ -84,4 +84,4 @@ const ContactForm = () => {
   );
 };
 
-export default ContactForm;
+export default Contact;

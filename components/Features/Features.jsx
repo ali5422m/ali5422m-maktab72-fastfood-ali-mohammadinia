@@ -11,10 +11,9 @@ function Features() {
                 <div className="card-icon-wrapper">
                   <i className="bi bi-telephone-fill fs-2 text-white card-icon"></i>
                 </div>
-                <p className="card-text fw-bold">لورم ایپسوم متن ساختگی</p>
+                <p className="card-text fw-bold"> کیفیت برتر</p>
                 <p className="card-text">
-                  لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
-                  استفاده از طراحان گرافیک است.{" "}
+                    سرعت پاسخگویی بلکه کیفیت نیز شماره یک است.
                 </p>
               </div>
             </div>
@@ -25,10 +24,9 @@ function Features() {
                 <div className="card-icon-wrapper">
                   <i className="bi bi-clock-fill fs-2 text-white card-icon"></i>
                 </div>
-                <p className="card-text fw-bold">لورم ایپسوم متن ساختگی</p>
+                <p className="card-text fw-bold"> تحویل سریع</p>
                 <p className="card-text">
-                  لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
-                  استفاده از طراحان گرافیک است.{" "}
+                    تحویل به موقع بلکه زودتر از زمان ممکن .
                 </p>
               </div>
             </div>
@@ -39,10 +37,9 @@ function Features() {
                 <div className="card-icon-wrapper">
                   <i className="bi bi-geo-alt-fill fs-2 text-white card-icon"></i>
                 </div>
-                <p className="card-text fw-bold">لورم ایپسوم متن ساختگی</p>
+                <p className="card-text fw-bold"> سفارش آسان</p>
                 <p className="card-text">
-                  لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
-                  استفاده از طراحان گرافیک است.{" "}
+                        با کمترین مرحله غذات را سفارش بده. 
                 </p>
               </div>
             </div>

@@ -389,6 +389,10 @@ a:focus {
   height: 100%;
 }
 
+.card {
+  height : 210px !important;
+}
+
 
 
 /* About Section */

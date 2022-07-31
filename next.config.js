@@ -5,6 +5,7 @@ const nextConfig = {
   images: {
     domains: [`${process.env.BACKEND_DOMAIN}`],
   },
+  // matcher: ["/about/:path*", "/dashboard/:path*"],
 };
 
 module.exports = nextConfig

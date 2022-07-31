@@ -11,6 +11,7 @@ import Header from "@/components/Layout/Header/Header";
 import Footer from "@/components/Layout/Footer/Footer";
 import Router from "next/router";
 import NProgress from "nprogress";
+import  { AuthProvider } from "@/context/AuthContext/AuthContext";
 
 axios.defaults.baseURL = process.env.NEXT_PUBLIC_BACKEND_API_URL;
 
@@ -24,12 +25,12 @@ function MyApp({ Component, pageProps }) {
   }, []);
 
   return (
-    <>
+    <AuthProvider>
       <Header />
       <Component {...pageProps} />
       <Footer />
       <ToastContainer rtl pauseOnFocusLoss pauseOnHover closeOnClick />
-    </>
+    </AuthProvider>
   );
 }
 

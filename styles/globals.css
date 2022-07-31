@@ -55,6 +55,48 @@ a:focus {
   box-shadow: none;
 }
 
+.btn {
+  display: inline-block;
+  padding: 8px 30px;
+  background-color: #ffbe33;
+  color: #ffffff;
+  border-radius: 45px;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  border: none;
+}
+
+.btn:hover {
+  background-color: #e69c00;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #ffbe33;
+  border-color: #ffbe33;
+}
+
+.btn-dark,
+.btn-kark:hover {
+  color: #fff;
+  background-color: #222831 !important;
+  border-color: #222831 !important;
+}
+
+.btn-primary.disabled,
+.btn-primary:disabled {
+  background-color: #ffbe33;
+  border-color: #ffbe33;
+}
+
+.btn-check:focus + .btn-primary,
+.btn-primary:focus {
+  color: #fff;
+  background-color: #ffbe33;
+  border-color: #ffbe33;
+  box-shadow: 0 0 0 0.25rem rgb(252 208 59 / 50%);
+}
+
 .heading_container {
   display: flex;
   flex-direction: column;
@@ -263,6 +305,7 @@ a:focus {
   transition: all 0.3s;
   border: none;
 }
+
 
 .btn-auth:hover {
   background-color: #e69c00;
@@ -478,18 +521,6 @@ a:focus {
   box-shadow: none;
 }
 
-.book_section .form_container .form-control::-webkit-input-placeholder {
-  color: #222222;
-}
-
-.book_section .form_container .form-control:-ms-input-placeholder {
-  color: #222222;
-}
-
-.book_section .form_container .form-control::-ms-input-placeholder {
-  color: #222222;
-}
-
 .book_section .form_container .form-control::placeholder {
   color: #222222;
 }
@@ -553,9 +584,35 @@ a:focus {
   border-radius: 5px;
 }
 
+.contact_section .form_container input::placeholder {
+  color: #222222;
+}
+
 .contact_section .form_container .btn-box {
   display: flex;
   justify-content: center;
+}
+
+.contact_section .form_container .btn-box {
+  display: flex;
+  justify-content: center;
+}
+
+.contact_section .form_container button {
+  margin-top: 10px;
+  border: none;
+  text-transform: uppercase;
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #ffbe33;
+  color: #ffffff;
+  border-radius: 0px;
+  transition: all 0.3s;
+  border: none;
+}
+
+.contact_section .form_container button:hover {
+  background-color: #e69c00;
 }
 
 
@@ -742,6 +799,10 @@ a:focus {
 .page-link:focus {
   color: #222831;
   box-shadow: 0 0 0 0.25rem rgb(31 33 37 / 25%);
+}
+
+.auth_section {
+  height: 85vh;
 }
 
 

@@ -469,6 +469,11 @@ concat-map@0.0.1:
   resolved "https://registry.yarnpkg.com/concat-map/-/concat-map-0.0.1.tgz#d8a96bd77fd68df7793a73036a3ba0d5405d477b"
   integrity sha512-/Srv4dswyQNBfohGpz9o6Yb3Gz3SrUDqBH5rTuhGR7ahtlbYKnVxw2bCFMRljaA7EXHaXZ8wsHdodFvbkhKmqg==
 
+cookie@^0.5.0:
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/cookie/-/cookie-0.5.0.tgz#d1f5d71adec6558c58f389987c366aa47e994f8b"
+  integrity sha512-YZ3GUyn/o8gfKJlnlX7g7xq4gyO6OSuhGPKaaGssGB2qgDUS0gPgtTvoyZLTt9Ab6dC4hfc9dV5arkvc/OCmrw==
+
 core-js-pure@^3.20.2:
   version "3.24.0"
   resolved "https://registry.yarnpkg.com/core-js-pure/-/core-js-pure-3.24.0.tgz#10eeb90dbf0d670a6b22b081aecc7deb2faec7e1"
@@ -1352,6 +1357,11 @@ natural-compare@^1.4.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/natural-compare/-/natural-compare-1.4.0.tgz#4abebfeed7541f2c27acfb29bdbbd15c8d5ba4f7"
   integrity sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==
+
+next-ssl-redirect-middleware@^0.1.4:
+  version "0.1.4"
+  resolved "https://registry.yarnpkg.com/next-ssl-redirect-middleware/-/next-ssl-redirect-middleware-0.1.4.tgz#f396a92d6801c1772758a6952ea0443b73190eb6"
+  integrity sha512-SWJBDyyI+5imAW11TWDXSsuu8VB/c2eHF3Va2T20/0mSASIOZrTnmoVxLcYTzv+elki8hbetAeb1jDtQiQ0Y0Q==
 
 next@12.2.3:
   version "12.2.3"

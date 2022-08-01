@@ -806,6 +806,52 @@ a:focus {
 }
 
 
+/* profile */
+
+.profile_section .list-group .list-group-item a {
+  color: #222831;
+}
+
+.vh-70 {
+  height: 70vh !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .Toastify__toast-body {
   font-family: "IranSansDN" !important;

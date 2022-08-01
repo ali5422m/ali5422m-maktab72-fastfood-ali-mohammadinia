@@ -1,6 +1,7 @@
 import { handleError } from "lib/helper";
 import axios from "axios";
 
+
 export default async function handler(req, res) {
   if (req.method === "GET") {
     // res.status(200).json({ message: "ok" })
@@ -8,7 +9,7 @@ export default async function handler(req, res) {
     if (!req.cookies.token) {
       res.status(403).json({ message: "ورود ناموفق یکبار دیگر تلاش کنید" });
       return;
-    }
+    } 
 
     try {
       const resApi = await axios.get(

@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import AuthContext from '@/context/AuthContext/AuthContext';
+import profilePage from './../../../pages/profile/index';
 
 
 
@@ -81,7 +82,7 @@ const Header = () => {
               </a>
               {user ? (
                 <Link href="/profile">
-                <a  className="btn-auth">
+                <a className="btn-auth">
                 پروفایل
                 </a>
               </Link>

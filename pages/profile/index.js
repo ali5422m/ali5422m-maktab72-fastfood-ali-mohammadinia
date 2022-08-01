@@ -8,7 +8,9 @@ import Loading from '@/components/Profile/Loading/Loading';
 
 const profilePage = () => {
   
-  const { data, error } = useSWR("/menu");
+  const { data, error } = useSWR(
+    `${process.env.NEXT_PUBLIC_APP_API_URL}/profile/info`
+  );
 
   console.log(data, error)
 
@@ -24,11 +26,12 @@ const profilePage = () => {
         <div className="row g-4">
           <div className="col col-md-6">
             <label className="form-label">نام و نام خانوادگی</label>
-            <input type="text" className="form-control"  />
+            <input defaultValue={data.name} type="text" className="form-control"  />
           </div>
           <div className="col col-md-6">
             <label className="form-label">ایمیل</label>
             <input
+            defaultValue={data.email}
               type="text"
               className="form-control"
              
@@ -37,6 +40,7 @@ const profilePage = () => {
           <div className="col col-md-6">
             <label className="form-label">شماره تلفن</label>
             <input
+            defaultValue={data.cellphone}
               type="text"
               disabled
               className="form-control"

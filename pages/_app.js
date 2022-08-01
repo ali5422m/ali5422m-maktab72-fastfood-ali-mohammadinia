@@ -11,7 +11,8 @@ import Header from "@/components/Layout/Header/Header";
 import Footer from "@/components/Layout/Footer/Footer";
 import Router from "next/router";
 import NProgress from "nprogress";
-import  { AuthProvider } from "@/context/AuthContext/AuthContext";
+import { AuthProvider } from "@/context/AuthContext/AuthContext";
+import { SWRConfig } from "swr";
 
 axios.defaults.baseURL = process.env.NEXT_PUBLIC_BACKEND_API_URL;
 
@@ -26,10 +27,12 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <AuthProvider>
-      <Header />
-      <Component {...pageProps} />
-      <Footer />
-      <ToastContainer rtl pauseOnFocusLoss pauseOnHover closeOnClick />
+      <SWRConfig value={{fetcher : (url) => axios.get(url).then((res) => res.data)}}>
+        <Header />
+        <Component {...pageProps} />
+        <Footer />
+        <ToastContainer rtl pauseOnFocusLoss pauseOnHover closeOnClick />
+      </SWRConfig>
     </AuthProvider>
   );
 }

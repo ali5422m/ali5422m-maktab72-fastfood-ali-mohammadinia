@@ -1,21 +1,37 @@
 import Layout from '@/components/Profile/Layout';
-import React from 'react'
+import React from 'react';
+import useSWR from 'swr';
+import {toast} from 'react-toastify';
+import {handleError} from 'lib/helper'
+import Loading from '@/components/Profile/Loading/Loading';
+
 
 const profilePage = () => {
+  
+  const { data, error } = useSWR("/menu");
+
+  console.log(data, error)
+
+  if(error){
+    toast.error(handleError(error))
+  }
+
+  if(!data) return  <Layout><Loading /></Layout>
+
   return (
     <Layout>
       <div className="vh-70">
         <div className="row g-4">
           <div className="col col-md-6">
             <label className="form-label">نام و نام خانوادگی</label>
-            <input type="text" className="form-control" value="لورم ایپسوم" />
+            <input type="text" className="form-control"  />
           </div>
           <div className="col col-md-6">
             <label className="form-label">ایمیل</label>
             <input
               type="text"
               className="form-control"
-              value="test@gmail.com"
+             
             />
           </div>
           <div className="col col-md-6">
@@ -24,7 +40,7 @@ const profilePage = () => {
               type="text"
               disabled
               className="form-control"
-              value="09100000000"
+              
             />
           </div>
         </div>

@@ -1,4 +1,6 @@
-import React from 'react'
+import React from 'react';
+import Link from 'next/link';
+
 
 const Layout = ({children}) => {
   return (
@@ -8,16 +10,25 @@ const Layout = ({children}) => {
           <div className="col-sm-12 col-lg-3">
             <ul className="list-group">
               <li className="list-group-item">
-                <a href="./index.html">اطلاعات کاربر</a>
+              <Link href="/profile">
+                <a >اطلاعات کاربر</a>
+              </Link>
               </li>
               <li className="list-group-item">
-                <a href="./addresses.html">آدرس ها</a>
+                 <Link href="/profile/addresses">
+                <a >آدرس ها</a>
+              </Link>
+              </li>
+              
+              <li className="list-group-item">
+                 <Link href="/profile/orders">
+                <a >سفارشات</a>
+                </Link>
               </li>
               <li className="list-group-item">
-                <a href="./orders.html">سفارشات</a>
-              </li>
-              <li className="list-group-item">
-                <a href="./transactions.html">تراکنش ها</a>
+              <Link href="/profile/transactions">
+                <a >تراکنش ها</a>
+                 </Link>
               </li>
             </ul>
           </div>

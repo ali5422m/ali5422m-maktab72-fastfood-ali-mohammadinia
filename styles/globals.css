@@ -752,6 +752,20 @@ a:focus {
   background-color: #222831;
 }
 
+.form-check-input:checked {
+  background-color: #222831;
+  border-color: #222831;
+}
+
+.form-check-input:focus {
+  box-shadow: 0 0 0 0.25rem rgb(67 69 72 / 25%) !important;
+}
+
+.form-select:focus {
+  border-color: #222831;
+  box-shadow: 0 0 0 0.25rem rgb(51 52 54 / 25%);
+}
+
 .form-control:focus {
   border-color: #222831;
   box-shadow: 0 0 0 0.25rem rgb(51 52 54 / 25%);
@@ -773,14 +787,6 @@ a:focus {
   background-color: #222831;
 }
 
-.form-check-input:checked {
-  background-color: #222831;
-  border-color: #222831;
-}
-
-.form-check-input:focus {
-  box-shadow: 0 0 0 0.25rem rgb(67 69 72 / 25%) !important;
-}
 
 .page-item.active .page-link {
   color: #ffbe33;
@@ -815,6 +821,16 @@ a:focus {
 .vh-70 {
   height: 70vh !important;
 }
+
+.card-create {
+  height: 580px !important;
+}
+
+.card-edit {
+  height: 565px !important;
+}
+
+
 
 
 
@@ -986,5 +1002,13 @@ a:focus {
 
   .about_section .row {
     flex-direction: column-reverse;
+  }
+}
+
+
+@media (min-width: 576px) and (max-width: 991px) {
+  .rent_solution_container .col-md-4.col-sm-6 {
+    float: left;
+    width: 50%;
   }
 }

@@ -28,13 +28,16 @@ const profileAddressPage = () => {
 
   return (
     <Layout>
-          <CreateAddress provinces={data.provinces} cities={data.cities} />
-          <hr />
-          {/* {data.addresses.map((address, index) => (
-              <EditAddress key={index}  />
-          ))} */}
-          
-                   
+      <CreateAddress provinces={data.provinces} cities={data.cities} />
+      <hr />
+      {data.addresses.map((address, index) => (
+        <EditAddress
+          key={index}
+          address={address}
+          provinces={data.provinces}
+          cities={data.cities}
+        />
+      ))}
     </Layout>
   );
 };

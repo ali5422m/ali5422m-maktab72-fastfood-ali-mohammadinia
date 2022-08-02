@@ -3,8 +3,11 @@ import { useForm } from "react-hook-form";
 import {handleError} from 'lib/helper'
 import axios from 'axios';
 import {toast} from 'react-toastify';
+import {useSWRConfig} from "swr";
 
-const CreateAddress = ({provinces , cities}) => {
+const CreateAddress = ({ provinces, cities }) => {
+    const {mutate} = useSWRConfig();
+
     const [loading,setLoading] = useState(false)
   const {
     register,
@@ -23,8 +26,10 @@ const CreateAddress = ({provinces , cities}) => {
             data
         })
         toast.success(' آدرس جدید با موفقیت ایجاد شد ')
+        // console.log(res.data)
+        mutate(`${process.env.NEXT_PUBLIC_APP_API_URL}/profile/addresses`);
 
-        console.log(res.data)
+      
 
     }catch(err){
 
@@ -48,7 +53,10 @@ const CreateAddress = ({provinces , cities}) => {
         ایجاد آدرس جدید
       </button>
       <div className="collapse  mt-3" id="collapseExample">
-        <form onSubmit={handleSubmit(onSubmit)} className="card card-create card-body">
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          className="card card-create card-body"
+        >
           <div className="row g-4">
             <div className="col col-md-6">
               <label className="form-label">عنوان</label>
@@ -86,77 +94,90 @@ const CreateAddress = ({provinces , cities}) => {
                 {...register("postal_code", {
                   required: "فیلد  کد پستی الزامی است",
                   pattern: {
-                    value: /^\d{5}[ -]?\d{5}$/i ,
+                    value: /^\d{5}[ -]?\d{5}$/i,
                     message: "فیلد کد پستی معتبر نمی باشد",
                   },
                 })}
                 type="text"
                 className="form-control"
               />
-               <div className="form-text text-danger">
+              <div className="form-text text-danger">
                 {errors.postal_code?.message}
               </div>
-
             </div>
             <div className="col col-md-6">
               <label className="form-label">استان</label>
               <select
-               {...register("province_id", {
+                {...register("province_id", {
                   required: "فیلد استان الزامی است",
                 })}
-                defaultValue = ""
+                defaultValue=""
                 className="form-select"
                 aria-label="Default select example"
               >
-                <option disabled value="">انتخاب استان</option>
-                {provinces.map((item)=>(
-                    <option key={item.id} value={item.id} >{item.name}</option>
+                <option disabled value="">
+                  انتخاب استان
+                </option>
+                {provinces.map((item) => (
+                  <option key={item.id} value={item.id}>
+                    {item.name}
+                  </option>
                 ))}
-                
               </select>
-                <div className="form-text text-danger">
-                {errors.postal_code?.message}
+              <div className="form-text text-danger">
+                {errors.province_id?.message}
               </div>
             </div>
             <div className="col col-md-6">
               <label className="form-label">شهر</label>
               <select
-                 {...register("city_id", {
+                {...register("city_id", {
                   required: "فیلد شهر الزامی است",
                 })}
-                 defaultValue = ""
+                defaultValue=""
                 className="form-select"
                 aria-label="Default select example"
               >
-                 <option disabled value="">انتخاب شهر</option>
-              {cities.filter((item) => item.province_id == watch('province_id') ).map((item)=>(
-                    <option key={item.id} value={item.id} >{item.name}</option>
-                ))}
-                
+                <option disabled value="">
+                  انتخاب شهر
+                </option>
+                {cities
+                  .filter((item) => item.province_id == watch("province_id"))
+                  .map((item) => (
+                    <option key={item.id} value={item.id}>
+                      {item.name}
+                    </option>
+                  ))}
               </select>
-               <div className="form-text text-danger">
+              <div className="form-text text-danger">
                 {errors.city_id?.message}
               </div>
             </div>
             <div className="col col-md-12">
               <label className="form-label">آدرس</label>
               <textarea
-                 {...register("address", {
+                {...register("address", {
                   required: "فیلد آدرس الزامی است",
                 })}
                 type="text"
                 rows="5"
                 className="form-control"
               ></textarea>
-               <div className="form-text text-danger">
+              <div className="form-text text-danger">
                 {errors.address?.message}
               </div>
             </div>
           </div>
           <div>
-            <button type="submit" disabled={loading} className="btn btn-primary mt-4">
+            <button
+              type="submit"
+              disabled={loading}
+              className="btn btn-primary mt-4"
+            >
               ایجاد
-              {loading && <div className="spinner-border spinner-border-sm ms-2"></div>}
+              {loading && (
+                <div className="spinner-border spinner-border-sm ms-2"></div>
+              )}
             </button>
           </div>
         </form>

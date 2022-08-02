@@ -4,6 +4,7 @@ import { handleError } from "lib/helper";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { useSWRConfig } from "swr";
+import DeleteAddress from "@/components/Profile/Address/DeleteAddress/DeleteAddress";
 
 const EditAddress = ({ address, provinces, cities }) => {
   const { mutate } = useSWRConfig();
@@ -165,19 +166,20 @@ const EditAddress = ({ address, provinces, cities }) => {
           </div>
         </div>
         <div>
-       
+       <div className="d-flex align-items-center justify-content-between mt-4">
           <button
             type="submit"
             disabled={loading}
-            className="btn btn-primary mt-4"
+            className="btn btn-primary "
           >
             ویرایش
             {loading && (
               <div className="spinner-border spinner-border-sm ms-2"></div>
             )}
-          </button>
-       
-          
+            </button>
+            
+              <DeleteAddress  id={address.id} />
+          </div>
         </div>
       </form>
       <hr />

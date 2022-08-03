@@ -2,7 +2,9 @@ import { numberFormat } from "lib/helper";
 import Image from "next/image";
 import Link from "next/link";
 import { useDispatch } from "react-redux";
-import { addToCart } from './../../../redux/cart/action';
+import { toast } from "react-toastify";
+import { addToCart,removeFromCart } from '@/redux/cart/action';
+
 
 
 
@@ -10,7 +12,9 @@ const Product = ({ product }) => {
   const dispatch = useDispatch();
 
   const handleAddToCart = () => {
+    dispatch(removeFromCart(product.id));
     dispatch(addToCart(product, 1));
+    toast.success("محصول به سبد خرید اضافه شد")
   }
 
   return (

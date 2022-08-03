@@ -29,7 +29,7 @@ export const decrement = (productId) => {
 
 export const removeFromCart = (productId) => {
   return {
-    type: REMOVE_FROM_CART,
+    type:REMOVE_FROM_CART,
     payload: productId,
   };
 };

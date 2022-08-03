@@ -13,6 +13,10 @@ import Router from "next/router";
 import NProgress from "nprogress";
 import { AuthProvider } from "@/context/AuthContext/AuthContext";
 import { SWRConfig } from "swr";
+import { Provider } from "react-redux";
+import store from '@/redux/store'
+
+
 
 axios.defaults.baseURL = process.env.NEXT_PUBLIC_BACKEND_API_URL;
 
@@ -23,15 +27,18 @@ Router.events.on("routeChangeError", () => NProgress.done());
 function MyApp({ Component, pageProps }) {
   useEffect(() => {
     import("bootstrap/dist/js/bootstrap.bundle.js");
-  }, []);
+  },
+ []);
 
   return (
     <AuthProvider>
-      <SWRConfig value={{fetcher : (url) => axios.get(url).then((res) => res.data)}}>
+      <SWRConfig value={{ fetcher: (url) => axios.get(url).then((res) => res.data) }}>
+        <Provider store={store}>
         <Header />
         <Component {...pageProps} />
         <Footer />
         <ToastContainer rtl pauseOnFocusLoss pauseOnHover closeOnClick />
+        </Provider>
       </SWRConfig>
     </AuthProvider>
   );

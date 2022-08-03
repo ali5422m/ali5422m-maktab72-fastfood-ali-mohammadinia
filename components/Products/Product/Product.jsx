@@ -1,8 +1,18 @@
 import { numberFormat } from "lib/helper";
 import Image from "next/image";
 import Link from "next/link";
+import { useDispatch } from "react-redux";
+import { addToCart } from './../../../redux/cart/action';
+
+
 
 const Product = ({ product }) => {
+  const dispatch = useDispatch();
+
+  const handleAddToCart = () => {
+    dispatch(addToCart(product, 1));
+  }
+
   return (
     <div className="box">
       <div>
@@ -36,9 +46,9 @@ const Product = ({ product }) => {
               )}
               <span>تومان</span>
             </h6>
-            <a href="">
+            <button onClick={handleAddToCart}>
               <i className="bi bi-cart-fill text-white fs-5"></i>
-            </a>
+            </button>
           </div>
         </div>
       </div>

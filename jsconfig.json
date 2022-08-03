@@ -5,7 +5,7 @@
             "@/styles/*": ["styles/*"],
             "@/components/*": ["components/*"],
             "@/context/*": ["context/*"],
-
+            "@/redux/*": ["redux/*"],
         }
     }
 }

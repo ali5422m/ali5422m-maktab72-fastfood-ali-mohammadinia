@@ -5,9 +5,12 @@ import {
   REMOVE_FROM_CART,
   CLEAR_CART,
 } from "./actionType";
+import { saveStorage,getStorage } from "./localStorage";
+
+
 
 const initialState = {
-    cart: [],
+    cart: getStorage(),
 }
 
 const cartReducer = (state = initialState, action) => {
@@ -16,6 +19,9 @@ const cartReducer = (state = initialState, action) => {
             state.cart = [...state.cart, { ...action.payload.product, qty: action.payload.qty }];
             
             console.log(state.cart)
+            saveStorage(state.cart)
+            
+            
             return {
                 ...state,
                 cart: state.cart
@@ -25,11 +31,14 @@ const cartReducer = (state = initialState, action) => {
             state.cart = state.cart.filter(p => p.id !== action.payload)
             
             console.log(state.cart)
+            saveStorage(state.cart)
+            
+
             return {
                 ...state,
                 cart: state.cart
             }
-            
+
         default: {
             return state;
         }

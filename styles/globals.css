@@ -831,12 +831,110 @@ a:focus {
 }
 
 
-/* products */
+/* products or single page*/
 
 .food_section  .box  .detail-box a {
   font-weight: 600;
   color: #fff;
 }
+
+.single_page_section .btn-add {
+  display: inline-block;
+  padding: 8px 30px;
+  background-color: #ffbe33;
+  color: #ffffff;
+  border-radius: 45px;
+  transition: all 0.3s;
+  border: none;
+}
+
+.input-counter {
+  max-width: 130px;
+  min-width: 130px;
+  text-align: center;
+  display: inline-block;
+  position: relative;
+}
+
+.input-counter .plus-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 22px;
+  background-color: transparent;
+  cursor: pointer;
+  color: #d0d0d0;
+  width: 40px;
+  height: 100%;
+  line-height: 48px;
+  transition: 0.6s;
+  user-select: none;
+}
+
+.input-counter .minus-btn {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 35px;
+  background-color: transparent;
+  cursor: pointer;
+  color: #d0d0d0;
+  width: 40px;
+  height: 100%;
+  line-height: 48px;
+  transition: 0.6s;
+  user-select: none;
+}
+
+.input-counter .input-number {
+  height: 45px;
+  color: #222831;
+  outline: 0;
+  display: block;
+  border: none;
+  background-color: #f8f8f8;
+  text-align: center;
+  width: 100%;
+  outline: 0;
+  box-shadow: none;
+  padding-top: 11px;
+  font-size: 17px;
+  font-weight: 600;
+  user-select: none;
+}
+
+.slider_section .carousel-indicators {
+  position: unset;
+  margin: 0;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.slider_section .carousel-indicators li {
+  background-color: #ffffff;
+  width: 12px;
+  height: 12px;
+  border-radius: 100%;
+  opacity: 1;
+}
+
+.slider_section .carousel-indicators li.active {
+  width: 20px;
+  height: 20px;
+  background-color: #ffbe33;
+}
+
+.carousel-inner {
+  border-radius: 20px;
+}
+
+.slider_section .carousel-indicators {
+    margin-top: 45px;
+  }
+
+
+
+
 
 
 

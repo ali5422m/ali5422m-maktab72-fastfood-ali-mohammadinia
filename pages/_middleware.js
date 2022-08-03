@@ -16,6 +16,6 @@
 // }
 
 
-import sslRedirect from "next-ssl-redirect-middleware";
+// import sslRedirect from "next-ssl-redirect-middleware";
 
-export default sslRedirect({});
+// export default sslRedirect({});

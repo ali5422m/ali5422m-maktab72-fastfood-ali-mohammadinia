@@ -831,6 +831,14 @@ a:focus {
 }
 
 
+/* products */
+
+.food_section  .box  .detail-box a {
+  font-weight: 600;
+  color: #fff;
+}
+
+
 
 
 

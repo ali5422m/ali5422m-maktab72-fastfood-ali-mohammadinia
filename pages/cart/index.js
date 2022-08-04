@@ -165,18 +165,46 @@ const cartPage = () => {
                         <ul className="list-group mt-4">
                           <li className="list-group-item d-flex justify-content-between">
                             <div>مجموع قیمت :</div>
-                            <div>535,000 تومان</div>
+                            <div>
+                              {numberFormat(cart.reduce((total, product) => {
+                                return product.is_sale
+                                  ? total + product.sale_price * product.qty
+                                  : total + product.price * product.qty;
+                              }, 0))}
+                            </div>
                           </li>
                           <li className="list-group-item d-flex justify-content-between">
                             <div>
                               تخفیف :
-                              <span className="text-danger ms-1">10%</span>
+                              <span className="text-danger ms-1">
+                                {coupon.percent}%
+                              </span>
                             </div>
-                            <div className="text-danger">53,500 تومان</div>
+                            <div className="text-danger">
+                              {numberFormat(cart.reduce((total, product) => {
+                                return product.is_sale
+                                  ? total + product.sale_price * product.qty
+                                  : total + product.price * product.qty;
+                              }, 0) *
+                                (coupon.percent / 100))}
+                              تومان
+                            </div>
                           </li>
                           <li className="list-group-item d-flex justify-content-between">
                             <div>قیمت پرداختی :</div>
-                            <div>481,500 تومان</div>
+                              <div>
+                                {numberFormat((cart.reduce((total, product) => {
+                                return product.is_sale
+                                  ? total + product.sale_price * product.qty
+                                  : total + product.price * product.qty;
+                              }, 0)) - (cart.reduce((total, product) => {
+                                return product.is_sale
+                                  ? total + product.sale_price * product.qty
+                                  : total + product.price * product.qty;
+                              }, 0) *
+                                (coupon.percent / 100))) }
+                                    تومان
+                            </div>
                           </li>
                         </ul>
                         <button className="user_option btn-auth mt-4">

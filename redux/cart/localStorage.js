@@ -1,5 +1,7 @@
 const saveStorage = (cart) => {
-    localStorage.setItem("shoppingCart", JSON.stringify(cart));
+    if (typeof window !== 'undefined') {
+        localStorage.setItem("shoppingCart", JSON.stringify(cart));
+    }
 }
 
 const getStorage = () => {

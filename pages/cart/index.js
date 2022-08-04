@@ -8,14 +8,15 @@ import {
   removeFromCart,
   clearCart,
 } from "@/redux/cart/action";
-import  Link  from 'next/link';
-import Coupon from "@/components/cart/Coupon/Coupon"
-
-
+import Link from "next/link";
+import Coupon from "@/components/cart/Coupon/Coupon";
+import Address from "@/components/cart/Address/Address";
 
 const cartPage = () => {
   const [cart, setCart] = useState(null);
   const [coupon, setCoupon] = useState({ code: null, percent: 0 });
+  const [addressId, setAddressId] = useState(null);
+
   const state = useSelector((state) => state.shoppingCart);
   const dispatch = useDispatch();
 
@@ -38,6 +39,7 @@ const cartPage = () => {
           <div className="container">
             <div className="row">
               <div className="col-md-10 offset-md-1">
+              
                 <div className="row gy-5">
                   <div className="col-12">
                     <div className="table-responsive">
@@ -143,18 +145,7 @@ const cartPage = () => {
                     <Coupon coupon={coupon} setCoupon={setCoupon} />
                   </div>
                   <div className="col-12 col-md-6 d-flex justify-content-end align-items-baseline">
-                    <div>انتخاب آدرس</div>
-                    <select
-                      style={{ width: "200px" }}
-                      className="form-select ms-3"
-                      aria-label="Default select example"
-                    >
-                      <option>منزل</option>
-                      <option>محل کار</option>
-                    </select>
-                    <a href="profile.html" className="btn btn-primary">
-                      ایجاد آدرس
-                    </a>
+                    <Address setAddressId={setAddressId} />
                   </div>
                 </div>
                 <div className="row justify-content-center mt-5">
@@ -166,11 +157,13 @@ const cartPage = () => {
                           <li className="list-group-item d-flex justify-content-between">
                             <div>مجموع قیمت :</div>
                             <div>
-                              {numberFormat(cart.reduce((total, product) => {
-                                return product.is_sale
-                                  ? total + product.sale_price * product.qty
-                                  : total + product.price * product.qty;
-                              }, 0))}
+                              {numberFormat(
+                                cart.reduce((total, product) => {
+                                  return product.is_sale
+                                    ? total + product.sale_price * product.qty
+                                    : total + product.price * product.qty;
+                                }, 0)
+                              )}
                             </div>
                           </li>
                           <li className="list-group-item d-flex justify-content-between">
@@ -181,29 +174,34 @@ const cartPage = () => {
                               </span>
                             </div>
                             <div className="text-danger">
-                              {numberFormat(cart.reduce((total, product) => {
-                                return product.is_sale
-                                  ? total + product.sale_price * product.qty
-                                  : total + product.price * product.qty;
-                              }, 0) *
-                                (coupon.percent / 100))}
+                              {numberFormat(
+                                cart.reduce((total, product) => {
+                                  return product.is_sale
+                                    ? total + product.sale_price * product.qty
+                                    : total + product.price * product.qty;
+                                }, 0) *
+                                  (coupon.percent / 100)
+                              )}
                               تومان
                             </div>
                           </li>
                           <li className="list-group-item d-flex justify-content-between">
                             <div>قیمت پرداختی :</div>
-                              <div>
-                                {numberFormat((cart.reduce((total, product) => {
-                                return product.is_sale
-                                  ? total + product.sale_price * product.qty
-                                  : total + product.price * product.qty;
-                              }, 0)) - (cart.reduce((total, product) => {
-                                return product.is_sale
-                                  ? total + product.sale_price * product.qty
-                                  : total + product.price * product.qty;
-                              }, 0) *
-                                (coupon.percent / 100))) }
-                                    تومان
+                            <div>
+                              {numberFormat(
+                                cart.reduce((total, product) => {
+                                  return product.is_sale
+                                    ? total + product.sale_price * product.qty
+                                    : total + product.price * product.qty;
+                                }, 0) -
+                                  cart.reduce((total, product) => {
+                                    return product.is_sale
+                                      ? total + product.sale_price * product.qty
+                                      : total + product.price * product.qty;
+                                  }, 0) *
+                                    (coupon.percent / 100)
+                              )}
+                              تومان
                             </div>
                           </li>
                         </ul>

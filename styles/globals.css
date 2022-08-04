@@ -132,6 +132,16 @@ a:focus {
   font-size:14px;
 }
 
+.cursor-pointer{
+  cursor:pointer;
+}
+
+
+
+
+
+
+
 /* header section */
 
 .header_section {
@@ -934,7 +944,20 @@ a:focus {
 
 
 
+/* loading */
 
+
+.cart-loading,
+.cart-empty {
+  height: 75vh ;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cart-spiner {
+  width: 3rem;
+  height: 3rem;
+}
 
 
 

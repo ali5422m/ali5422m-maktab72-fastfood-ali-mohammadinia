@@ -1,14 +1,22 @@
-import React, { useContext } from 'react';
+import React, { useContext,useEffect,useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import AuthContext from '@/context/AuthContext/AuthContext';
-import profilePage from './../../../pages/profile/index';
+import { useSelector} from "react-redux";
 
 
 
 const Header = () => {
   const router = useRouter();
-  const {user} = useContext(AuthContext)
+  const {user} = useContext(AuthContext);
+
+   const [cart, setCart] = useState([]);
+  const state = useSelector((state) => state.shoppingCart);
+
+  useEffect(() => {
+    setCart(state.cart);
+  }, [state]);
+
 
   return (
     <header className="header_section">
@@ -74,12 +82,15 @@ const Header = () => {
               </li>
             </ul>
             <div className="user_option">
-              <a className="cart_link position-relative" href="cart.html">
+              <Link href="/cart">
+              <a className="cart_link position-relative" >
                 <i className="bi bi-cart-fill text-white fs-5"></i>
                 <span className="position-absolute top-0 translate-middle  badge rounded-pill">
-                  3
+                  {cart.length}
                 </span>
               </a>
+              </Link>
+
               {user ? (
                 <Link href="/profile">
                 <a className="btn-auth">

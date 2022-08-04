@@ -11,6 +11,8 @@ import {
 import Link from "next/link";
 import Coupon from "@/components/cart/Coupon/Coupon";
 import Address from "@/components/cart/Address/Address";
+import Payment from "@/components/cart/Payment/Payment";
+
 
 const cartPage = () => {
   const [cart, setCart] = useState(null);
@@ -205,9 +207,8 @@ const cartPage = () => {
                             </div>
                           </li>
                         </ul>
-                        <button className="user_option btn-auth mt-4">
-                          پرداخت
-                        </button>
+                        <Payment cart={cart} coupon={coupon} addressId={addressId} />
+                
                       </div>
                     </div>
                   </div>

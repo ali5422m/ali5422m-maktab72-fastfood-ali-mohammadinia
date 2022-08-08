@@ -173,12 +173,8 @@ a:focus {
 }
 
 
-.navbar-nav{
-  line-height: 25px !important;
-}
-
 .nav-item:hover {
-  border-bottom: 2px solid #ffbe33 ;  
+  border-bottom: 2px solid #ffbe33 ; 
 }
 
 .custom_nav-container .nav_search-btn {
@@ -267,9 +263,7 @@ a:focus {
   margin: 0 10px;
 }
 
-.user_option span{
-    margin-left: 2.6rem;
-}
+
 
 .user_option .user_link {
   color: #ffffff;
@@ -446,9 +440,7 @@ a:focus {
   height: 100%;
 }
 
-.card {
-  height : 210px !important;
-}
+
 
 
 
@@ -780,23 +772,6 @@ a:focus {
   border-color: #222831;
   box-shadow: 0 0 0 0.25rem rgb(51 52 54 / 25%);
 }
-
-.input-group-text {
-  color: #fff;
-  background-color: #222831;
-  border: 1px solid #222831;
-}
-
-.input-group .input-group-text:hover {
-  color: #fff;
-  background-color: #222831;
-}
-
-.input-group .input-group-text:focus {
-  color: #fff;
-  background-color: #222831;
-}
-
 
 .page-item.active .page-link {
   color: #ffbe33;

@@ -8,8 +8,11 @@ import { useDispatch } from 'react-redux';
 import { addToCart, removeFromCart } from "@/redux/cart/action";
 
 
+
 const ProductPage = ({ product, randomProduct, error }) => {
     const [quantity, setQuantity] = useState(1);
+
+    const [addImage,setAddImage] = useState(null);
 
     const dispatch = useDispatch();
 
@@ -18,8 +21,6 @@ const ProductPage = ({ product, randomProduct, error }) => {
       dispatch(addToCart(product, quantity));
       toast.success("محصول به سبد خرید اضافه شد")
     };
-
-    
 
     useEffect(() => {
         error && toast.error(error)
@@ -211,3 +212,6 @@ export async function getServerSideProps({ query }) {
         }
     }
 }
+
+
+

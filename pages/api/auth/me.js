@@ -14,7 +14,7 @@ export default async function handler(req, res) {
     try {
       const resApi = await axios.post("/auth/me", {}, {
         headers: {
-          Authorization: `Bearer ${req.cookies.token}`,
+          'Authorization' : `Bearer ${req.cookies.token}`,
         }
       });
     

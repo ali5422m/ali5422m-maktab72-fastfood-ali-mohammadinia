@@ -21,20 +21,22 @@ const Product = ({ product }) => {
     <div className="box">
       <div>
         <div className="img-box">
-          <Image
-            className="img-fluid"
-            src={product.primary_image}
-            layout="responsive"
-            width={366}
-            height={244}
-            placeholder="blur"
-            blurDataURL={product.primary_image_blurDataURL}
-          />
+          <Link href={`/products/${product.slug}`}>
+            <Image
+              className="img-fluid cursor-pointer"
+              src={product.primary_image}
+              layout="responsive"
+              width={366}
+              height={244}
+              placeholder="blur"
+              blurDataURL={product.primary_image_blurDataURL}
+            />
+          </Link>
         </div>
         <div className="detail-box">
           <h5>
             <Link href={`/products/${product.slug}`}>
-            {product.name}
+              {product.name}
             </Link>
           </h5>
           <p>{product.description}</p>

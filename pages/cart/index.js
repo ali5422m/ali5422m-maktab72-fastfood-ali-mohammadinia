@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect} from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Image from "next/image";
 import { numberFormat } from "lib/helper";
@@ -18,6 +18,8 @@ const cartPage = () => {
   const [cart, setCart] = useState(null);
   const [coupon, setCoupon] = useState({ code: null, percent: 0 });
   const [addressId, setAddressId] = useState(null);
+
+
 
   const state = useSelector((state) => state.shoppingCart);
   const dispatch = useDispatch();
@@ -100,7 +102,8 @@ const cartPage = () => {
                                   <div className="input-number">{item.qty}</div>
                                   <span
                                     onClick={() =>
-                                      item.qty > 1 &&
+                                      item.qty === 1 ?
+                                      dispatch(removeFromCart(item.id)) : 
                                       dispatch(decrement(item.id))
                                     }
                                     className="minus-btn"

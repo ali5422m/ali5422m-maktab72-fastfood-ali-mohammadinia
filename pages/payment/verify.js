@@ -34,7 +34,7 @@ const paymentVerifyPage = ({ payment, error }) => {
                                     <h6 className="mt-3">شماره پیگیری : <span>{payment.transId}</span></h6>
                                     </>
                                 )  : (
-                                    <h5 className="mt-3 text-success">{payment.error}</h5> 
+                                    <h5 className="mt-3 text-danger">{payment.error}</h5> 
 
                                     )}
                                 

@@ -3,6 +3,7 @@ import axios from "axios";
 
 export default async function handler(req, res) {
   if (req.method === "GET") {
+
     if (!req.cookies.token) {
       res.status(403).json({ message: "ورود نا موفق یکبار دیگر تلاش کنید" });
       return;
@@ -13,7 +14,7 @@ export default async function handler(req, res) {
         "/user/addresses",
         {
           headers: {
-            Authorization: `Bearer ${req.cookies.token}`,
+            'Authorization': `Bearer ${req.cookies.token}`,
           },
         }
       );

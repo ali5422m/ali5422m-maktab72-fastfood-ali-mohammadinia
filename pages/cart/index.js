@@ -14,7 +14,7 @@ import Address from "@/components/cart/Address/Address";
 import Payment from "@/components/cart/Payment/Payment";
 
 
-const cartPage = () => {
+const CartPage = () => {
   const [cart, setCart] = useState(null);
   const [coupon, setCoupon] = useState({ code: null, percent: 0 });
   const [addressId, setAddressId] = useState(null);
@@ -237,4 +237,4 @@ const cartPage = () => {
   );
 };
 
-export default cartPage;
+export default CartPage;

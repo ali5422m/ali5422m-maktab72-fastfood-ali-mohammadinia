@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useDispatch } from "react-redux";
 import { clearCart } from '@/redux/cart/action';
 
-const paymentVerifyPage = ({ payment, error }) => {
+const PaymentVerifyPage = ({ payment, error }) => {
     
     const dispatch = useDispatch()
 
@@ -63,7 +63,7 @@ const paymentVerifyPage = ({ payment, error }) => {
   )
 }
 
-export default paymentVerifyPage;
+export default PaymentVerifyPage;
 
 export async function getServerSideProps({query}) {
   try {

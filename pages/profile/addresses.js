@@ -8,7 +8,7 @@ import CreateAddress from "@/components/Profile/Address/CreateAddress/CreateAddr
 import EditAddress from "@/components/Profile/Address/EditAddress/EditAddress";
 
 
-const profileAddressPage = () => {
+const ProfileAddressPage = () => {
   const { data, error } = useSWR(
     `${process.env.NEXT_PUBLIC_APP_API_URL}/profile/addresses`
   );
@@ -42,4 +42,4 @@ const profileAddressPage = () => {
   );
 };
 
-export default profileAddressPage;
+export default ProfileAddressPage;

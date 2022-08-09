@@ -84,11 +84,27 @@ export const AuthProvider = ({ children }) => {
          } 
   };
   
+
+   const logout = async () => {
+     try {
+       setLoading(true);
+
+       const res = await axios.post(
+         `${process.env.NEXT_PUBLIC_APP_API_URL}/auth/logout` );
+       //    console.log(res.data)
+       setUser(null);
+       router.push("/");
+     } catch (err) {
+       toast.error(handleError(err));
+     } finally {
+       setLoading(false);
+     }
+   };
  
     
     return (
       <AuthContext.Provider
-        value={{ user, login, checkOtp, resendOtp, loading }}
+        value={{ user, login, checkOtp, resendOtp, loading, logout }}
       >
         {children}
       </AuthContext.Provider>

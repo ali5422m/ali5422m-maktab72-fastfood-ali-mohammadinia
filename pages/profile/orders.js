@@ -9,7 +9,7 @@ import Image from 'next/image';
 
 
 const ProfileAddressPage = () => {
-  const [pageIndex,setPageIndex] = useState(0);
+  const [pageIndex, setPageIndex] = useState(0);
   const { data, error } = useSWR(`${process.env.NEXT_PUBLIC_APP_API_URL}/profile/orders?page=${pageIndex}`);
   // console.log(data, error)
 

@@ -1,6 +1,5 @@
 import "bootstrap/dist/css/bootstrap.rtl.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
-// import "bootstrap/dist/css/bootstrap.min.css";
 import "react-toastify/dist/ReactToastify.css";
 import "@/styles/globals.css"
 
@@ -14,7 +13,8 @@ import NProgress from "nprogress";
 import { AuthProvider } from "@/context/AuthContext/AuthContext";
 import { SWRConfig } from "swr";
 import { Provider } from "react-redux";
-import store from '@/redux/store'
+import store from '@/redux/store';
+import  AdminLayout  from '@/components/Admin/layout/Layout/AdminLayout';
 
 
 
@@ -27,8 +27,15 @@ Router.events.on("routeChangeError", () => NProgress.done());
 function MyApp({ Component, pageProps }) {
   useEffect(() => {
     import("bootstrap/dist/js/bootstrap.bundle.js");
-  },
- []);
+  }, []);
+
+  if (Component.getLayout) {
+    return Component.getLayout(
+      <AdminLayout>
+      <Component {...pageProps} />
+    </AdminLayout>
+    )
+    }
 
   return (
     <AuthProvider>

@@ -3,7 +3,7 @@ import { toast } from "react-toastify";
 import { createContext, useState , useEffect } from "react";
 import  axios  from 'axios';
 import { useRouter } from 'next/router';
-import AdminHeader from './../../components/Admin/layout/Header/AdminHeader';
+
 
 
 const AuthContext = createContext();
@@ -19,6 +19,7 @@ export const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     checkUserLoggedIn();
+    checkAdminLoggedIn();
   },[])
     
 
@@ -135,25 +136,43 @@ export const AuthProvider = ({ children }) => {
   // Logout Admin
 
 
-    const logoutAdmin = async () => {
+  const logoutAdmin = async () => {
     try {
       setLoading(true);
-           const res = await axios.post(
-             `${process.env.NEXT_PUBLIC_APP_API_URL}/admin/auth/logout`);
+      const res = await axios.post(
+        `${process.env.NEXT_PUBLIC_APP_API_URL}/admin/auth/logout`);
 
       setUserAdmin(null);
       
       router.push("/admin/auth/login");
 
       
-      } catch (err) {
-        toast.error(handleError(err));
-    }finally{
-        setLoading(false);
-      }
+    } catch (err) {
+      toast.error(handleError(err));
+    } finally {
+      setLoading(false);
+    }
   }
 
- 
+  // Check userAdmin Logged In
+
+    const checkAdminLoggedIn = async () => {
+    try {
+      
+      const res = await axios.get(
+        `${process.env.NEXT_PUBLIC_APP_API_URL}/admin/auth/me`);
+
+      setUserAdmin(res.data.user);
+      
+      
+
+      
+    } catch (err) {
+      setUserAdmin(null);
+      router.push("/admin/auth/login");
+    } 
+  }
+
  
     
     return (

@@ -3,7 +3,7 @@ import { toast } from "react-toastify";
 import AuthContext from "@/context/AuthContext/AuthContext";
 
 function LoginPage() {
-     const [email, setEmail] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   
   const {loginAdmin,loading } = useContext(AuthContext)

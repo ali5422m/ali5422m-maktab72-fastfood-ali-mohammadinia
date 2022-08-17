@@ -11,7 +11,18 @@ export default async function middleware(req, res) {
     
     if (!token && req.nextUrl.pathname == "/cart") {
       return NextResponse.redirect(new URL("/auth/login", req.url));
-    }
+  }
+
+
+  // admin panel
+  
+   if (!token && !req.nextUrl.pathname == "/admin/auth/login") {
+     return NextResponse.redirect(new URL("/admin/auth/login", req.url));
+  }
+  
+   if (token && req.nextUrl.pathname == "/admin/auth/login") {
+     return NextResponse.redirect(new URL("/admin", req.url));
+   }
 
   return NextResponse.next();
 }

@@ -1,9 +1,9 @@
 import {handleError} from "lib/helper";
 import { toast } from "react-toastify";
 import { createContext, useState , useEffect } from "react";
-import {  } from "react";
 import  axios  from 'axios';
 import { useRouter } from 'next/router';
+import AdminHeader from './../../components/Admin/layout/Header/AdminHeader';
 
 
 const AuthContext = createContext();
@@ -11,6 +11,8 @@ const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
     const [loading, setLoading] = useState(false);
     const [user, setUser] = useState(null);
+    const [userAdmin, setUserAdmin] = useState(null);
+  
 
   const router = useRouter();
   
@@ -99,12 +101,53 @@ export const AuthProvider = ({ children }) => {
      } finally {
        setLoading(false);
      }
-   };
+  };
+  
+
+  // Admin panel
+
+
+  // login Admin
+
+  const loginAdmin = async ({ email, password }) => {
+    try {
+      setLoading(true);
+           const res = await axios.post(
+             `${process.env.NEXT_PUBLIC_APP_API_URL}/admin/auth/login`,
+             {
+               email,
+               password,
+             }
+           );
+
+      setUserAdmin(res.data.data.user);
+      
+      router.push("/admin");
+
+      
+      } catch (err) {
+        toast.error(handleError(err));
+    }finally{
+        setLoading(false);
+      }
+  }
+
+ 
  
     
     return (
       <AuthContext.Provider
-        value={{ user, login, checkOtp, resendOtp, loading, logout }}
+        value={{
+          user,
+          login,
+          checkOtp,
+          resendOtp,
+          loading,
+          logout,
+          loginAdmin,
+          userAdmin,
+   
+        }}
       >
         {children}
       </AuthContext.Provider>

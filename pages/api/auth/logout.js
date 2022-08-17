@@ -22,13 +22,15 @@ export default async function handler(req, res) {
         }
       );
 
-    res.setHeader("Set-Cookie", 
-      cookie.serialize("token", '' , {
+    res.setHeader(
+      "Set-Cookie",
+      cookie.serialize("token", "", {
         httpOnly: true,
         secure: process.env.NODE_ENV !== "development",
-        maxAge: new Date(0),
+        expires: new Date(0),
         path: "/",
-      }));
+      })
+    );
         // console.log(resApi.data);
         
 

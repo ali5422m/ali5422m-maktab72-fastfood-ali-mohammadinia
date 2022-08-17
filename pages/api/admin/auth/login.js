@@ -5,35 +5,33 @@ import cookie from "cookie";
 export default async function handler(req, res) {
   if (req.method === "POST") {
     // res.status(200).json({ message: "ok" })
-      
-      if (!req.cookies.login_token) {
-          res.status(403).json({ message: "ورود ناموفق یکبار دیگر تلاش کنید" });
-          return;
-      }
 
     try {
-      const resApi = await axios.post("/auth/check-otp", {
-        otp: req.body.otp,
-        login_token: req.cookies.login_token,
-      });
+      const resApi = await axios.post(
+        `${process.env.NEXT_PUBLIC_BACKEND_ADMIN_API_URL}/auth/login`,
+        {
+          email: req.body.email,
+          password: req.body.password,
+        }
+      );
+        
+        
         // console.log(resApi.data);
-      res.setHeader("Set-Cookie", [
-        cookie.serialize("login_token", "", {
-          httpOnly: true,
-          secure: process.env.NODE_ENV !== "development",
-          expires: new Date(0),
-          path: "/",
-        }),
+
+
+      res.setHeader(
+        "Set-Cookie",
         cookie.serialize("token", resApi.data.data.token, {
           httpOnly: true,
           secure: process.env.NODE_ENV !== "development",
           maxAge: 60 * 60 * 24 * 7, // 1 week
           path: "/",
-        }),
-      ]);
+        })
+      );
 
-      res.status(200).json({ user: resApi.data.data.user });
+      res.status(200).json({ data: resApi.data.data });
     } catch (err) {
+      console.log(err.message);
       res.status(422).json({ message: { 'err': [handleError(err)] } });
     }
   } else {

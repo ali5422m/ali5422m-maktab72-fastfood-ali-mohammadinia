@@ -31,10 +31,13 @@ function MyApp({ Component, pageProps }) {
 
   if (Component.getLayout) {
     return Component.getLayout(
-      <AdminLayout>
-      <Component {...pageProps} />
-    </AdminLayout>
-    )
+      <AuthProvider>
+        <AdminLayout>
+          <Component {...pageProps} />
+          <ToastContainer rtl pauseOnFocusLoss pauseOnHover closeOnClick />
+        </AdminLayout>
+      </AuthProvider>
+    );
     }
 
   return (

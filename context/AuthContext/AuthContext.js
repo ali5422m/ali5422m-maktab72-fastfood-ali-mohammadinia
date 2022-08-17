@@ -132,6 +132,27 @@ export const AuthProvider = ({ children }) => {
       }
   }
 
+  // Logout Admin
+
+
+    const logoutAdmin = async () => {
+    try {
+      setLoading(true);
+           const res = await axios.post(
+             `${process.env.NEXT_PUBLIC_APP_API_URL}/admin/auth/logout`);
+
+      setUserAdmin(null);
+      
+      router.push("/admin/auth/login");
+
+      
+      } catch (err) {
+        toast.error(handleError(err));
+    }finally{
+        setLoading(false);
+      }
+  }
+
  
  
     
@@ -146,7 +167,7 @@ export const AuthProvider = ({ children }) => {
           logout,
           loginAdmin,
           userAdmin,
-   
+          logoutAdmin,
         }}
       >
         {children}

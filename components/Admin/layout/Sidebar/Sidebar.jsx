@@ -27,7 +27,7 @@ function Sidebar() {
             </Link>
           </li>
           <li className="nav-item">
-            <Link href="/admin/users/">
+            <Link href="/admin/users">
               <a className={router.pathname.includes("/admin/users")
                 ? "nav-link active"
                 : "nav-link"}>

@@ -23,10 +23,10 @@ const UserList = ({users}) => {
               <td>{user.created_at}</td>
               <td>
                 <div className="d-flex">
-                  <Link href={`admin/users/${user.id}`}>
+                  <Link href={`users/${user.id}`}>
                     <a className="btn btn-sm btn-outline-dark me-2">نمایش</a>
                   </Link>
-                  <Link href={`/admin/users/edit/${user.id}`}>
+                  <Link href={`users/edit/${user.id}`}>
                     <a className="btn btn-sm btn-dark">ویرایش</a>
                   </Link>
                 </div>

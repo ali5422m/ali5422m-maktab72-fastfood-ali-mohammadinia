@@ -20,7 +20,7 @@ export default async function handler(req, res) {
         `${process.env.NEXT_PUBLIC_BACKEND_ADMIN_API_URL}${req.query.url}${page}`,
         {
           headers: {
-            Authorization: `Bearer ${req.cookies.token}`,
+            'Authorization' : `Bearer ${req.cookies.token}`,
           },
         }
       );
@@ -40,7 +40,7 @@ export default async function handler(req, res) {
         },
         {
           headers: {
-            Authorization: `Bearer ${req.cookies.token}`,
+            'Authorization' : `Bearer ${req.cookies.token}`,
           },
         }
       );

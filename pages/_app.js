@@ -18,7 +18,13 @@ import  AdminLayout  from '@/components/Admin/layout/Layout/AdminLayout';
 
 
 
-axios.defaults.baseURL = process.env.NEXT_PUBLIC_BACKEND_API_URL;
+
+ axios.defaults.baseURL = process.env.NEXT_PUBLIC_BACKEND_API_URL;
+
+
+
+
+
 
 Router.events.on("routeChangeStart", () => NProgress.start());
 Router.events.on("routeChangeComplete", () => NProgress.done());
@@ -30,15 +36,23 @@ function MyApp({ Component, pageProps }) {
   }, []);
 
   if (Component.getLayout) {
+
+
     return Component.getLayout(
       <AuthProvider>
+        <SWRConfig value={{ fetcher: (url) => axios.get(url).then((res) => res.data) }}>
         <AdminLayout>
           <Component {...pageProps} />
           <ToastContainer rtl pauseOnFocusLoss pauseOnHover closeOnClick />
         </AdminLayout>
+        </SWRConfig>
       </AuthProvider>
     );
-    }
+  }
+  
+
+
+   
 
   return (
     <AuthProvider>
@@ -53,5 +67,6 @@ function MyApp({ Component, pageProps }) {
     </AuthProvider>
   );
 }
+ 
 
 export default MyApp;

@@ -3,7 +3,7 @@ import axios from "axios";
 
 
 export default async function handler(req, res) {
-  if (req.method === "GET") {
+  if (req.method === "POST") {
     // res.status(200).json({ message: "ok" })
       
       if (!req.cookies.token) {
@@ -23,7 +23,7 @@ export default async function handler(req, res) {
       res.status(422).json({ message: { 'err': [handleError(err)] } });
     }
   } else {
-    res.setHeader("Allow", ["GET"]);
+    res.setHeader("Allow", ["POST"]);
     res.status(405).json({ message: `Method ${req.method} Not Allowed` });
   }
 }

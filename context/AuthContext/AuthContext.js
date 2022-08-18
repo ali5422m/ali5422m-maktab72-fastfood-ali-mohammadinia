@@ -159,7 +159,7 @@ export const AuthProvider = ({ children }) => {
     const checkAdminLoggedIn = async () => {
     try {
       
-      const res = await axios.get(
+      const res = await axios.post(
         `${process.env.NEXT_PUBLIC_APP_API_URL}/admin/auth/me`);
 
       setUserAdmin(res.data.user);

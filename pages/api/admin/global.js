@@ -9,11 +9,14 @@ export default async function handler(req, res) {
     return;
   } else if (req.method === "GET") {
     
-    console.log(req.query.url)
+    let page = req.query.hasOwnProperty("page") ? `?page=${req.query.page}` : '';
+      
+    // console.log(req.query.url)
+    console.log(`${process.env.NEXT_PUBLIC_BACKEND_ADMIN_API_URL}${req.query.url}?page=${req.query.page}`);
 
     try {
       const resApi = await axios.get(
-        `${process.env.NEXT_PUBLIC_BACKEND_ADMIN_API_URL}${req.query.url}`,
+        `${process.env.NEXT_PUBLIC_BACKEND_ADMIN_API_URL}${req.query.url}${page}`,
         {
           headers: {
             Authorization: `Bearer ${req.cookies.token}`,

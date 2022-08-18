@@ -1,6 +1,9 @@
 import React from 'react'
+import  Link  from 'next/link';
+import { useRouter } from 'next/router';
 
 function Sidebar() {
+  const router = useRouter();
   return (
     <nav
       id="sidebarMenu"
@@ -9,26 +12,37 @@ function Sidebar() {
       <div className="position-sticky pt-3">
         <ul className="nav flex-column">
           <li className="nav-item">
-            <a
-              className="nav-link active"
-              aria-current="page"
-              href="index.html"
-            >
-              <i className="bi bi-grid me-2"></i>
-              داشبورد
-            </a>
+            <Link href="/admin">
+              <a
+                className={
+                  router.pathname == "/admin"
+                    ? "nav-link active"
+                    : "nav-link"
+                }
+                aria-current="page"
+              >
+                <i className="bi bi-grid me-2"></i>
+                داشبورد
+              </a>
+            </Link>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="#">
-              <i className="bi bi-people me-2"></i>
-              کاربران
-            </a>
+            <Link href="/admin/users/">
+              <a className={router.pathname == "/admin/users"
+                ? "nav-link active"
+                : "nav-link"}>
+                <i className="bi bi-people me-2"></i>
+                کاربران
+              </a>
+            </Link>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="./products.html">
-              <i className="bi bi-box-seam me-2"></i>
-              محصولات
-            </a>
+            <Link href="/admin/products">
+              <a className="nav-link">
+                <i className="bi bi-box-seam me-2"></i>
+                محصولات
+              </a>
+            </Link>
           </li>
           <li className="nav-item">
             <a className="nav-link" href="#">

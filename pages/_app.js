@@ -17,12 +17,7 @@ import store from '@/redux/store';
 import  AdminLayout  from '@/components/Admin/layout/Layout/AdminLayout';
 
 
-
-
  axios.defaults.baseURL = process.env.NEXT_PUBLIC_BACKEND_API_URL;
-
-
-
 
 
 

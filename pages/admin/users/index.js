@@ -15,7 +15,7 @@ function AdminPanel() {
     `http://localhost:3000/api/admin/global?url=/users&page=${pageIndex}`
   );
 
-  console.log(data);
+  // console.log(data);
 
   if (error) {
     toast.error(handleError(error));

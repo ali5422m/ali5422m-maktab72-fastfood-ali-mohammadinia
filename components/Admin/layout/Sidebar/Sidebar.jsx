@@ -51,16 +51,24 @@ function Sidebar() {
             </a>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="#">
+             <Link href="/admin/orders">
+            <a className={router.pathname == "/admin/orders"
+                ? "nav-link active"
+                : "nav-link"}>
               <i className="bi bi-basket me-2"></i>
               سفارشات
             </a>
+            </Link>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="#">
+           <Link href="/admin/transactions">
+            <a className={router.pathname == "/admin/transactions"
+                ? "nav-link active"
+                : "nav-link"}>
               <i className="bi bi-currency-dollar me-2"></i>
               تراکنش ها
             </a>
+            </Link>
           </li>
           <li className="nav-item">
             <a className="nav-link" href="#">

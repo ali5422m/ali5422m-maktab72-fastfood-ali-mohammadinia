@@ -3,6 +3,13 @@ import  useSWR  from 'swr';
 import { handleError } from 'lib/helper';
 import { toast } from 'react-toastify';
 import Loading from '@/components/Profile/Loading/Loading';
+import dynamic from "next/dynamic";
+
+
+const Chart = dynamic(() => import("@/components/Admin/Chart/Chart"), {
+  ssr: false,
+
+});
 
 function AdminPanel() {
   const { data, error } = useSWR(
@@ -26,7 +33,7 @@ function AdminPanel() {
               <h4 className="fw-bold">داشبورد</h4>
             </div>
 
-            <div id="chartdiv"></div>
+            <Chart  data={data} />
     </>
      
   );

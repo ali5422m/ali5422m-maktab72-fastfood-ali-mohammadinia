@@ -6,17 +6,20 @@ import Loading from '@/components/Profile/Loading/Loading';
 import dynamic from "next/dynamic";
 
 
-const Chart = dynamic(() => import("@/components/Admin/Chart/Chart"), {
+
+
+  const Chart = dynamic(() => import("@/components/Admin/Chart/Chart"), {
   ssr: false,
 
-});
+  });
 
 function AdminPanel() {
+  
   const { data, error } = useSWR(
     "http://localhost:3000/api/admin/global?url=/transactions/chart"
   );
 
-  // console.log(data)
+  console.log(data)
 
   if(error){
     toast.error(handleError(error))

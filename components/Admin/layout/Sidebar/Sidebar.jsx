@@ -71,14 +71,10 @@ function Sidebar() {
             </Link>
           </li>
           <li className="nav-item">
-              <Link href="/admin/coupons">
-            <a className={router.pathname == "/admin/transactions"
-                ? "nav-link active"
-                : "nav-link"}>
+            <a className="nav-link" href="#">
               <i className="bi bi-percent me-2"></i>
               تخفیف ها
             </a>
-            </Link>
           </li>
         </ul>
       </div>

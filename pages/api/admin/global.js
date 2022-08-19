@@ -20,7 +20,7 @@ export default async function handler(req, res) {
         `${process.env.NEXT_PUBLIC_BACKEND_ADMIN_API_URL}${req.query.url}${page}`,
         {
           headers: {
-            'Authorization' : `Bearer ${req.cookies.token}`,
+            Authorization: `Bearer ${req.cookies.token}`,
           },
         }
       );
@@ -29,18 +29,16 @@ export default async function handler(req, res) {
     } catch (err) {
       res.status(422).json({ message: { err: [handleError(err)] } });
     }
-  }
-   else if (req.method === "POST") {
-   
-
+  } else if (req.method === "POST") {
     try {
       const resApi = await axios.post(
-        `${process.env.NEXT_PUBLIC_BACKEND_ADMIN_API_URL}${req.query.url}`, {
+        `${process.env.NEXT_PUBLIC_BACKEND_ADMIN_API_URL}${req.query.url}`,
+        {
           ...req.body,
         },
         {
           headers: {
-            'Authorization' : `Bearer ${req.cookies.token}`,
+            Authorization: `Bearer ${req.cookies.token}`,
           },
         }
       );
@@ -49,5 +47,20 @@ export default async function handler(req, res) {
     } catch (err) {
       res.status(422).json({ message: { err: [handleError(err)] } });
     }
-  }
+  } else if (req.method === "DELETE") {
+    try {
+      const resApi = await axios.delete(
+        `${process.env.NEXT_PUBLIC_BACKEND_ADMIN_API_URL}${req.query.url}`,
+        {
+          headers: {
+            Authorization: `Bearer ${req.cookies.token}`,
+          },
+        }
+      );
+
+      res.status(200).json(resApi.data.data);
+    } catch (err) {
+      res.status(422).json({ message: { err: [handleError(err)] } });
+    }
+  } 
 }

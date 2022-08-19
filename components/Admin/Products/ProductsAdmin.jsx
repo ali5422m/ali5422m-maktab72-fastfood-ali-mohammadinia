@@ -20,7 +20,7 @@ const ProductsAdmin = ({products}) => {
           </thead>
           <tbody>
             {products.map((product) => (
-              <tr key={product.id}>
+              <tr>
                 <th>
                   <Image
                     src={product.primary_image}
@@ -46,8 +46,10 @@ const ProductsAdmin = ({products}) => {
                 <td>{product.status}</td>
                 <td>
                   <div className="d-flex">
-                    <Link href={`products/${product.id}`}>
-                      <a className="btn btn-sm btn-outline-dark me-2">نمایش</a>
+                     <Link href={`products/${product.id}`}>
+                    <a className="btn btn-sm btn-outline-dark me-2">
+                      نمایش
+                    </a>
                     </Link>
                     <button className="btn btn-sm btn-dark">حذف</button>
                   </div>

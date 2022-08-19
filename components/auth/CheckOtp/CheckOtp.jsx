@@ -12,7 +12,7 @@ const CheckOtp = () => {
 
   
   useEffect(() => {
-        let time = "0:10";
+    let time = "0:59";
         let interval = setInterval(() => {
             let countdown = time.split(':');
             let minutes = parseInt(countdown[0], 10);

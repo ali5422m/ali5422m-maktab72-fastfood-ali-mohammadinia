@@ -4,6 +4,7 @@ import useSWR from 'swr';
 import { handleError } from 'lib/helper';
 import { toast } from 'react-toastify';
 import Loading from '@/components/Profile/Loading/Loading';
+import DeleteUser from '@/components/Admin/users/Delete';
 
 const ShowUser = () => {
     const router = useRouter();
@@ -57,6 +58,8 @@ const ShowUser = () => {
           </div>
         </div>
       </div>
+
+      <DeleteUser  id={data.id} />
     </>
   );
 }

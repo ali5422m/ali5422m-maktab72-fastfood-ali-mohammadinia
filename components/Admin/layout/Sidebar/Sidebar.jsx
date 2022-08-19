@@ -15,7 +15,9 @@ function Sidebar() {
             <Link href="/admin">
               <a
                 className={
-                  router.pathname == "/admin" ? "nav-link active" : "nav-link"
+                  router.pathname == "/admin"
+                    ? "nav-link active"
+                    : "nav-link"
                 }
                 aria-current="page"
               >
@@ -26,13 +28,9 @@ function Sidebar() {
           </li>
           <li className="nav-item">
             <Link href="/admin/users">
-              <a
-                className={
-                  router.pathname.includes("/admin/users")
-                    ? "nav-link active"
-                    : "nav-link"
-                }
-              >
+              <a className={router.pathname.includes("/admin/users")
+                ? "nav-link active"
+                : "nav-link"}>
                 <i className="bi bi-people me-2"></i>
                 کاربران
               </a>
@@ -53,45 +51,33 @@ function Sidebar() {
             </a>
           </li>
           <li className="nav-item">
-            <Link href="/admin/orders">
-              <a
-                className={
-                  router.pathname.includes("/admin/users")
-                    ? "nav-link active"
-                    : "nav-link"
-                }
-              >
-                <i className="bi bi-basket me-2"></i>
-                سفارشات
-              </a>
+             <Link href="/admin/orders">
+            <a className={router.pathname == "/admin/orders"
+                ? "nav-link active"
+                : "nav-link"}>
+              <i className="bi bi-basket me-2"></i>
+              سفارشات
+            </a>
             </Link>
           </li>
           <li className="nav-item">
-            <Link href="/admin/transactions">
-              <a
-                className={
-                  router.pathname == "/admin/transactions"
-                    ? "nav-link active"
-                    : "nav-link"
-                }
-              >
-                <i className="bi bi-currency-dollar me-2"></i>
-                تراکنش ها
-              </a>
+           <Link href="/admin/transactions">
+            <a className={router.pathname == "/admin/transactions"
+                ? "nav-link active"
+                : "nav-link"}>
+              <i className="bi bi-currency-dollar me-2"></i>
+              تراکنش ها
+            </a>
             </Link>
           </li>
           <li className="nav-item">
-            <Link href="/admin/coupons">
-              <a
-                className={
-                  router.pathname == "/admin/transactions"
-                    ? "nav-link active"
-                    : "nav-link"
-                }
-              >
-                <i className="bi bi-percent me-2"></i>
-                تخفیف ها
-              </a>
+              <Link href="/admin/coupons">
+            <a className={router.pathname == "/admin/transactions"
+                ? "nav-link active"
+                : "nav-link"}>
+              <i className="bi bi-percent me-2"></i>
+              تخفیف ها
+            </a>
             </Link>
           </li>
         </ul>

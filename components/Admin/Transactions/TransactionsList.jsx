@@ -19,13 +19,12 @@ const TransactionsList = ({ transactions }) => {
           </thead>
           <tbody>
             {transactions.map((transaction) => (
-              <tr>
+              <tr key={transaction.id}>
                 <td>{transaction.order_id}</td>
                 <td>{transaction.status}</td>
                 <td>{transaction.amount}</td>
                 <td>{transaction.trans_id}</td>
                 <td>{transaction.created_at}</td>
-
               </tr>
             ))}
           </tbody>

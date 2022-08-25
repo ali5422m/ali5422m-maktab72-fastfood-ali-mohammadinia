@@ -1,5 +1,6 @@
 import React from 'react'
 import Link  from 'next/link';
+import {toFarsiNumber} from 'lib/helper';
 
 const UserList = ({users}) => {
   return (
@@ -19,8 +20,8 @@ const UserList = ({users}) => {
             <tr key={user.id}>
               <td>{user.name}</td>
               <td>{user.email}</td>
-              <td>{user.cellphone}</td>
-              <td>{user.created_at}</td>
+              <td>{toFarsiNumber(user.cellphone)}</td>
+              <td>{toFarsiNumber(user.created_at)}</td>
               <td>
                 <div className="d-flex">
                   <Link href={`users/${user.id}`}>

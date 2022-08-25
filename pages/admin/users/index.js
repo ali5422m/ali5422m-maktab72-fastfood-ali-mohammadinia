@@ -1,6 +1,6 @@
 import React,{useState} from "react";
 import useSWR from "swr";
-import { handleError } from "lib/helper";
+import { handleError,toFarsiNumber } from "lib/helper";
 import { toast } from "react-toastify";
 import Loading from "@/components/Profile/Loading/Loading";
 import  Link  from 'next/link';
@@ -42,7 +42,7 @@ function AdminPanel() {
                 <li key={index} className={link.active ? "page-item active" : "page-item"}>
                   <button onClick={() => setPageIndex( link.label )}
                     className="page-link" disabled={link.active}>
-                    <span>{link.label}</span>
+                    <span>{toFarsiNumber(link.label)}</span>
                   </button>
                 </li>
               ))}

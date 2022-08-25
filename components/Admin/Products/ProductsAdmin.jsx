@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-import { numberFormat } from 'lib/helper';
+import {  numberFormat ,toFarsiNumber } from 'lib/helper';
 import  Link  from 'next/link';
 
 const ProductsAdmin = ({products}) => {
@@ -34,15 +34,15 @@ const ProductsAdmin = ({products}) => {
                 <td>
                   {product.is_sale ? (
                     <>
-                      <span>{numberFormat(product.sale_price)}</span>
-                      <del className="me-1">{numberFormat(product.price)}</del>
+                      <span>{toFarsiNumber(numberFormat(product.sale_price))}</span>
+                      <del className="me-1">{toFarsiNumber(numberFormat(product.price))}</del>
                     </>
                   ) : (
-                    <span>{numberFormat(product.price)}</span>
+                    <span>{toFarsiNumber(numberFormat(product.price))}</span>
                   )}
                   <span>تومان</span>
                 </td>
-                <td>{product.quantity}</td>
+                <td>{toFarsiNumber(product.quantity)}</td>
                 <td>{product.status}</td>
                 <td>
                   <div className="d-flex">
@@ -51,7 +51,9 @@ const ProductsAdmin = ({products}) => {
                       نمایش
                     </a>
                     </Link>
-                    <button className="btn btn-sm btn-dark">حذف</button>
+                    <Link href={`products/edit/${product.id}`}>
+                    <a className="btn btn-sm btn-dark">ویرایش</a>
+                    </Link>
                   </div>
                 </td>
               </tr>

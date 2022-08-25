@@ -1,9 +1,9 @@
 import React,{useState} from 'react';
 import useSWR from "swr";
-import { handleError } from "lib/helper";
+import { handleError,toFarsiNumber } from "lib/helper";
 import { toast } from "react-toastify";
 import Loading from "@/components/Profile/Loading/Loading";
-// import Link from "next/link";
+import Link from "next/link";
 import ProductsAdmin from '@/components/Admin/Products/ProductsAdmin';
 
 const Products = () => {
@@ -27,9 +27,11 @@ const Products = () => {
     <>
       <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h4 className="fw-bold">محصولات</h4>
-        <button type="button" className="btn btn-sm btn-outline-dark">
-          ایجاد محصول
-        </button>
+        <Link href="/admin/products/create">
+          <a type="button" className="btn btn-sm btn-outline-dark">
+            ایجاد محصول
+          </a>
+        </Link>
       </div>
 
       <ProductsAdmin products={data.products} />
@@ -47,7 +49,7 @@ const Products = () => {
                   className="page-link"
                   disabled={link.active}
                 >
-                  <span>{link.label}</span>
+                  <span>{toFarsiNumber(link.label)}</span>
                 </button>
               </li>
             ))}

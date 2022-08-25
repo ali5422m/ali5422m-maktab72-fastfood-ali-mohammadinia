@@ -2,7 +2,7 @@ import Layout from "@/components/Profile/Layout";
 import React,{useState} from "react";
 import useSWR from "swr";
 import { toast } from "react-toastify";
-import { handleError,numberFormat } from "lib/helper";
+import { handleError,numberFormat,toFarsiNumber } from "lib/helper";
 import Loading from "@/components/Profile/Loading/Loading";
 import Image from 'next/image';
 
@@ -41,13 +41,13 @@ const ProfileAddressPage = () => {
           <tbody>
             {data.transactions.map((transaction) => (
               <tr key={transaction.id}>
-                <th>{transaction.order_id}</th>
-                <td>{numberFormat(transaction.amount)} تومان</td>
+                <th>{toFarsiNumber(transaction.order_id)}</th>
+                <td>{toFarsiNumber(numberFormat(transaction.amount))} تومان</td>
                 <td>
                   <span className={transaction.status == "موفق" ? "text-success" : "text-danger"}>{transaction.status}</span>
                 </td>
-                <td>{transaction.trans_id}</td>
-                <td>{transaction.created_at}</td>
+                <td>{transaction.trans_id ? toFarsiNumber(transaction.trans_id) : transaction.trans_id}</td>
+                <td>{toFarsiNumber(transaction.created_at)}</td>
               </tr>
             ))}
           </tbody>
@@ -64,7 +64,7 @@ const ProfileAddressPage = () => {
                 onClick={() => setPageIndex(link.label)}
                 className="page-link"
               >
-                {link.label}
+                {toFarsiNumber(link.label)}
               </button>
             </li>
           ))}

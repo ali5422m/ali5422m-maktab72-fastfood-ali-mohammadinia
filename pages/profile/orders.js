@@ -2,9 +2,10 @@ import Layout from "@/components/Profile/Layout";
 import React,{useState} from "react";
 import useSWR from "swr";
 import { toast } from "react-toastify";
-import { handleError,numberFormat } from "lib/helper";
+import { handleError,numberFormat,toFarsiNumber } from "lib/helper";
 import Loading from "@/components/Profile/Loading/Loading";
 import Image from 'next/image';
+
 
 
 
@@ -32,7 +33,7 @@ const ProfileAddressPage = () => {
           <thead>
             <tr>
               <th>شماره سفارش</th>
-              <th>آدرس</th>
+              {/* <th>آدرس</th> */}
               <th>وضعیت</th>
               <th>وضعیت پرداخت</th>
               <th>قیمت کل</th>
@@ -42,14 +43,14 @@ const ProfileAddressPage = () => {
           <tbody>
             {data.orders.map((order) => (
               <tr key={order.id}>
-                <th>{order.id}</th>
-                <td>{order.address_title}</td>
+                <th>{toFarsiNumber(order.id)}</th>
+                {/* <td>{order.address_title}</td> */}
                 <td>{order.status}</td>
                 <td>
                   <span className="text-success"> {order.payment_status}</span>
                 </td>
-                <td>{numberFormat(order.paying_amount)}تومان</td>
-                <td> {order.created_at}</td>
+                <td>{toFarsiNumber(numberFormat(order.paying_amount))}تومان</td>
+                <td> {toFarsiNumber(order.created_at)}</td>
                 <td>
                   <button
                     type="button"
@@ -64,7 +65,7 @@ const ProfileAddressPage = () => {
                       <div className="modal-content">
                         <div className="modal-header">
                           <h6 className="modal-title">
-                            محصولات سفارش شماره {order.id}
+                            محصولات سفارش شماره {toFarsiNumber(order.id)}
                           </h6>
                           <button
                             type="button"
@@ -85,19 +86,28 @@ const ProfileAddressPage = () => {
                               </tr>
                             </thead>
                             <tbody>
-                            {order.order_items.map((product)=>(
-                               <tr key={product.id}>
-                                <th>
-                                <Image src={product.product_primary_image} width={80} height={53} layout='responsive' alt='primary-image' />
-                                 
-                                </th>
-                                <td className="fw-bold"> {product.product_name}</td>
-                                <td>{numberFormat(product.price)} تومان</td>
-                                <td>{product.quantity}</td>
-                                <td>{numberFormat(product.subtotal)} تومان</td>
-                              </tr>
-                            ))}
-                             
+                              {order.order_items.map((product) => (
+                                <tr key={product.id}>
+                                  <th>
+                                    <Image
+                                      src={product.product_primary_image}
+                                      width={80}
+                                      height={53}
+                                      layout="responsive"
+                                      alt="primary-image"
+                                    />
+                                  </th>
+                                  <td className="fw-bold">
+                                    {" "}
+                                    {product.product_name}
+                                  </td>
+                                  <td>{toFarsiNumber(numberFormat(product.price))} تومان</td>
+                                  <td>{toFarsiNumber(product.quantity)}</td>
+                                  <td>
+                                    {toFarsiNumber(numberFormat(product.subtotal))} تومان
+                                  </td>
+                                </tr>
+                              ))}
                             </tbody>
                           </table>
                         </div>
@@ -111,26 +121,21 @@ const ProfileAddressPage = () => {
         </table>
       </div>
       <nav className="d-flex justify-content-center mt-5">
-               <ul className="pagination">
-                      {data.meta.links
-                          .slice(1, -1)
-                          .map((link, index) => (
-                            <li
-                              key={index}
-                              className={
-                                link.active ? "page-item active" : "page-item"
-                              }
-                            >
-                              <button
-                              onClick={()=>setPageIndex(link.label)}
-                               
-                                className="page-link"
-                              >
-                                {link.label}
-                              </button>
-                            </li>
-                          ))}
-                    </ul>
+        <ul className="pagination">
+          {data.meta.links.slice(1, -1).map((link, index) => (
+            <li
+              key={index}
+              className={link.active ? "page-item active" : "page-item"}
+            >
+              <button
+                onClick={() => setPageIndex(link.label)}
+                className="page-link"
+              >
+                {toFarsiNumber(link.label)}
+              </button>
+            </li>
+          ))}
+        </ul>
       </nav>
     </Layout>
   );

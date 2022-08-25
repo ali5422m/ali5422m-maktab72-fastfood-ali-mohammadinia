@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import AuthContext from '@/context/AuthContext/AuthContext';
 import { useSelector} from "react-redux";
+import {toFarsiNumber} from "lib/helper";
 
 
 
@@ -23,9 +24,7 @@ const Header = () => {
       <div className="container">
         <nav className="navbar navbar-expand-lg custom_nav-container">
           <Link href="/">
-            <a className="navbar-brand">
-              <span>Foody</span>
-            </a>
+              <span className= "header-name">Foody</span>
           </Link>
 
           <button
@@ -86,7 +85,7 @@ const Header = () => {
               <a className="cart_link position-relative" >
                 <i className="bi bi-cart-fill text-white fs-5"></i>
                 <span className="position-absolute top-0 translate-middle  badge rounded-pill">
-                  {cart.length}
+                  {toFarsiNumber(cart.length)}
                 </span>
               </a>
               </Link>

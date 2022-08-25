@@ -1,4 +1,5 @@
 import Product from "@/components/Products/Product/Product";
+import Link from "next/link";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 
 const ProductsTab = ({ tabs }) => {
@@ -12,14 +13,14 @@ const ProductsTab = ({ tabs }) => {
         <Tabs selectedTabClassName={"active"}>
           <TabList>
             <ul className="filters_menu">
-              {tabs.tabList.map((list, index) => (
+              {tabs.tabList.map((list,index) => (
                 <Tab key={index}>{list}</Tab>
               ))}
             </ul>
           </TabList>
 
           <div className="filters-content">
-            {tabs.tabPanel.map((panel, index) => (
+            {tabs.tabPanel.map((panel,index) => (
               <TabPanel key={index}>
                 <div className="row grid">
                   {panel.map((product, index) => (
@@ -34,7 +35,9 @@ const ProductsTab = ({ tabs }) => {
         </Tabs>
 
         <div className="btn-box">
-          <a href="">مشاهده بیشتر</a>
+        <Link href="/menu">
+          <a >مشاهده بیشتر</a>
+        </Link>
         </div>
       </div>
     </section>

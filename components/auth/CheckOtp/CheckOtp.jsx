@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
 import {useContext , useState} from 'react';
 import AuthContext from '@/context/AuthContext/AuthContext';
-import {toast} from "react-toastify"
+import { toast } from "react-toastify";
+
 
 const CheckOtp = () => {
   const { checkOtp , resendOtp , loading } = useContext(AuthContext);

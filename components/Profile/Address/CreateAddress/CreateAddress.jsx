@@ -4,7 +4,7 @@ import {handleError} from 'lib/helper'
 import axios from 'axios';
 import {toast} from 'react-toastify';
 import {useSWRConfig} from "swr";
-
+ 
 const CreateAddress = ({ provinces, cities }) => {
     const {mutate} = useSWRConfig();
 
@@ -29,12 +29,8 @@ const CreateAddress = ({ provinces, cities }) => {
         // console.log(res.data)
         mutate(`${process.env.NEXT_PUBLIC_APP_API_URL}/profile/addresses`);
 
-      
-
     }catch(err){
-
         toast.error(handleError(err))
-
     }finally{
         setLoading(false)
     }

@@ -3,6 +3,7 @@ import {useContext , useState} from 'react';
 import AuthContext from '@/context/AuthContext/AuthContext';
 import {toast} from "react-toastify"
 
+
 const Login = ({setStep}) => {
     const { login , loading } = useContext(AuthContext);
     const [cellphone, setCellphone] = useState("");
@@ -36,11 +37,15 @@ const Login = ({setStep}) => {
           aria-describedby="emailHelp"
         />
       </div>
-      <button onClick={handleLogin} disabled={loading} className="btn btn-primary btn-auth">
+      <button
+        onClick={handleLogin}
+        disabled={loading}
+        className="btn btn-primary btn-auth"
+      >
         ورود
-         {loading && (
-            <div className="spinner-border spinner-border-sm ms-2"></div>
-          )}
+        {loading && (
+          <div className="spinner-border spinner-border-sm ms-2"></div>
+        )}
       </button>
     </div>
   );

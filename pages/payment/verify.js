@@ -1,4 +1,4 @@
-import {handleError} from "lib/helper";
+import { handleError, toFarsiNumber } from "lib/helper";
 import axios from "axios";
 import Link from "next/link";
 import { useDispatch } from "react-redux";
@@ -31,7 +31,7 @@ const PaymentVerifyPage = ({ payment, error }) => {
                                 (
                                     <>
                                     <h5 className="mt-3 text-success">پرداخت شما با موفقیت انجام شد</h5>
-                                    <h6 className="mt-3">شماره پیگیری : <span>{payment.transId}</span></h6>
+                                    <h6 className="mt-3">شماره پیگیری : <span>{toFarsiNumber(payment.transId)}</span></h6>
                                     </>
                                 )  : (
                                     <h5 className="mt-3 text-danger">{payment.error}</h5> 

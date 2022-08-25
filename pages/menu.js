@@ -1,4 +1,4 @@
-import { handleError } from "lib/helper";
+import { handleError,toFarsiNumber} from "lib/helper";
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import axios from "axios";
@@ -17,6 +17,7 @@ const MenuPage = ({ products, categories, error }) => {
   }, [error]);
 
   const handleFilter = async (value) => {
+    // console.log(router.query);
     let query = { ...router.query, ...value };
 
     if (!value.hasOwnProperty("page")) {
@@ -203,7 +204,7 @@ const MenuPage = ({ products, categories, error }) => {
                                 }
                                 className="page-link"
                               >
-                                {link.label}
+                                {toFarsiNumber(link.label)}
                               </button>
                             </li>
                           ))}

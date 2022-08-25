@@ -1,7 +1,7 @@
 import React, { useState, useEffect} from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Image from "next/image";
-import { numberFormat } from "lib/helper";
+import { numberFormat,toFarsiNumber } from "lib/helper";
 import {
   increment,
   decrement,
@@ -76,14 +76,14 @@ const CartPage = () => {
                                   {item.is_sale ? (
                                     <>
                                       <span>
-                                        {numberFormat(item.sale_price)}
+                                        {toFarsiNumber(numberFormat(item.sale_price))}
                                       </span>
                                       <del className="me-1">
-                                        {numberFormat(item.price)}
+                                        {toFarsiNumber(numberFormat(item.price))}
                                       </del>
                                     </>
                                   ) : (
-                                    <span>{numberFormat(item.price)}</span>
+                                    <span>{toFarsiNumber(numberFormat(item.price))}</span>
                                   )}
                                   <span>تومان</span>
                                 </div>
@@ -99,11 +99,10 @@ const CartPage = () => {
                                   >
                                     +
                                   </span>
-                                  <div className="input-number">{item.qty}</div>
+                                  <div className="input-number">{toFarsiNumber(item.qty)}</div>
                                   <span
                                     onClick={() =>
-                                      item.qty === 1 ?
-                                      dispatch(removeFromCart(item.id)) : 
+                                      item.qty>1 && 
                                       dispatch(decrement(item.id))
                                     }
                                     className="minus-btn"
@@ -115,11 +114,11 @@ const CartPage = () => {
                               <td>
                                 {item.is_sale ? (
                                   <span>
-                                    {numberFormat(item.sale_price * item.qty)}
+                                    {toFarsiNumber(numberFormat(item.sale_price * item.qty))}
                                   </span>
                                 ) : (
                                   <span>
-                                    {numberFormat(item.price * item.qty)}
+                                    {toFarsiNumber(numberFormat(item.price * item.qty))}
                                   </span>
                                 )}
                                 <span className="ms-1">تومان</span>
@@ -162,38 +161,37 @@ const CartPage = () => {
                           <li className="list-group-item d-flex justify-content-between">
                             <div>مجموع قیمت :</div>
                             <div>
-                              {numberFormat(
+                              {toFarsiNumber(numberFormat(
                                 cart.reduce((total, product) => {
                                   return product.is_sale
                                     ? total + product.sale_price * product.qty
                                     : total + product.price * product.qty;
                                 }, 0)
-                              )}
+                              ))}
                             </div>
                           </li>
                           <li className="list-group-item d-flex justify-content-between">
                             <div>
                               تخفیف :
                               <span className="text-danger ms-1">
-                                {coupon.percent}%
+                                {toFarsiNumber(coupon.percent)}%
                               </span>
                             </div>
                             <div className="text-danger">
-                              {numberFormat(
+                              {toFarsiNumber(numberFormat(
                                 cart.reduce((total, product) => {
                                   return product.is_sale
                                     ? total + product.sale_price * product.qty
                                     : total + product.price * product.qty;
-                                }, 0) *
-                                  (coupon.percent / 100)
-                              )}
+                                }, 0) * (coupon.percent / 100)
+                              ))}
                               تومان
                             </div>
                           </li>
                           <li className="list-group-item d-flex justify-content-between">
                             <div>قیمت پرداختی :</div>
                             <div>
-                              {numberFormat(
+                              {toFarsiNumber(numberFormat(
                                 cart.reduce((total, product) => {
                                   return product.is_sale
                                     ? total + product.sale_price * product.qty
@@ -205,7 +203,7 @@ const CartPage = () => {
                                       : total + product.price * product.qty;
                                   }, 0) *
                                     (coupon.percent / 100)
-                              )}
+                              ))}
                               تومان
                             </div>
                           </li>

@@ -28,13 +28,22 @@ const Layout = ({children}) => {
                 </Link>
               </li>
 
+                <li className="list-group-item">
+                <Link href="/profile/transactions">
+                  <a>تراکنش ها</a>
+                </Link>
+              </li>
+
+              
               <li className="list-group-item">
                   <a onClick={logout} href="#" >خروج</a>
               </li>
 
             </ul>
           </div>
-          <div className="col-sm-12 col-lg-9">{children}</div>
+          <div className="col-sm-12 col-lg-9">
+            {children}
+          </div>
         </div>
       </div>
     </section>

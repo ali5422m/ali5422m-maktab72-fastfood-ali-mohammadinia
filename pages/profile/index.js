@@ -2,7 +2,7 @@ import Layout from '@/components/Profile/Layout';
 import React,{useState} from 'react';
 import useSWR from 'swr';
 import {toast} from 'react-toastify';
-import {handleError} from 'lib/helper'
+import {handleError,toFarsiNumber} from 'lib/helper'
 import Loading from '@/components/Profile/Loading/Loading';
 import { useForm } from "react-hook-form";
 import axios from 'axios';
@@ -83,7 +83,7 @@ const ProfilePage = () => {
           <div className="col col-md-6">
             <label className="form-label">شماره تلفن</label>
             <input
-              defaultValue={data.cellphone}
+              defaultValue={toFarsiNumber(data.cellphone)}
               type="text"
               disabled
               className="form-control"

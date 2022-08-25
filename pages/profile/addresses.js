@@ -30,9 +30,9 @@ const ProfileAddressPage = () => {
     <Layout>
       <CreateAddress provinces={data.provinces} cities={data.cities} />
       <hr />
-      {data.addresses.map((address, index) => (
+      {data.addresses.map((address) => (
         <EditAddress
-          key={index}
+          key={address.id}
           address={address}
           provinces={data.provinces}
           cities={data.cities}

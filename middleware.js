@@ -16,13 +16,13 @@ export default async function middleware(req, res) {
 
   // admin panel
   
-   if (!token && !req.nextUrl.pathname == "/admin/auth/login") {
-     return NextResponse.redirect(new URL("/admin/auth/login", req.url));
-  }
+  //  if (!token && !req.nextUrl.pathname == "/admin/auth/login") {
+  //    return NextResponse.redirect(new URL("/admin/auth/login", req.url));
+  // }
   
-   if (token && req.nextUrl.pathname == "/admin/auth/login") {
-     return NextResponse.redirect(new URL("/admin", req.url));
-   }
+  //  if (token && req.nextUrl.pathname == "/admin/auth/login") {
+  //    return NextResponse.redirect(new URL("/admin", req.url));
+  //  }
 
   return NextResponse.next();
 }

@@ -1,4 +1,4 @@
-import { handleError, numberFormat, salePercent } from "lib/helper";
+import { handleError, numberFormat, salePercent,toFarsiNumber } from "lib/helper";
 import { useEffect, useState } from "react"
 import { toast } from "react-toastify";
 import axios from "axios";
@@ -39,19 +39,19 @@ const ProductPage = ({ product, randomProduct, error }) => {
                       <h5 className="mb-3">
                         {product.is_sale ? (
                           <>
-                            <span>{numberFormat(product.sale_price)}</span>
+                            <span>{toFarsiNumber(numberFormat(product.sale_price))}</span>
                             <del className="me-1">
-                              {numberFormat(product.price)}
+                              {toFarsiNumber(numberFormat(product.price))}
                             </del>
                           </>
                         ) : (
-                          <span>{numberFormat(product.price)}</span>
+                          <span>{toFarsiNumber(numberFormat(product.price))}</span>
                         )}
                         <span>تومان</span>
 
                         {product.is_sale && (
                           <div className="text-danger fs-6">
-                            {salePercent(product)}% تخفیف
+                            {toFarsiNumber(salePercent(product))}% تخفیف
                           </div>
                         )}
                       </h5>
@@ -71,7 +71,7 @@ const ProductPage = ({ product, randomProduct, error }) => {
                           >
                             +
                           </span>
-                          <div className="input-number">{quantity}</div>
+                          <div className="input-number">{toFarsiNumber(quantity)}</div>
                           <span
                             className="minus-btn"
                             onClick={() =>

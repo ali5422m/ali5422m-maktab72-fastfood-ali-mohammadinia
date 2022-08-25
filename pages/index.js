@@ -2,6 +2,8 @@ import About from "@/components/About/About";
 import Features from "@/components/Features/Features";
 import ContactUs from "@/components/Contact/ContactUs/ContactUs";
 import ProductsTab from "@/components/Products/ProductsTab/ProductsTab";
+import Slider from "@/components/Slider/Slider";
+
 
 import axios from "axios";
 import { handleError } from "lib/helper";
@@ -18,6 +20,7 @@ export default function Home({ productsTab, error }) {
 
   return (
     <>
+      <Slider />
       <Features />
       {productsTab && <ProductsTab tabs={productsTab} />}
       <About />
